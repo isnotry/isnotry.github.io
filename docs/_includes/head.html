@@ -5,4 +5,31 @@
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <link rel="stylesheet" href="{{ "/assets/css/custom.css" | relative_url }}">
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+      document.addEventListener("DOMContentLoaded", function () {
+        var btn = document.createElement("button");
+        btn.id = "theme-toggle";
+        btn.title = "切换浅色 / 深色";
+        var sync = function () {
+          var cur = document.documentElement.getAttribute("data-theme");
+          btn.textContent = cur === "dark" ? "亮" : "暗";
+        };
+        sync();
+        btn.addEventListener("click", function () {
+          var cur = document.documentElement.getAttribute("data-theme");
+          var next = cur === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", next);
+          try { localStorage.setItem("theme", next); } catch (e) {}
+          sync();
+        });
+        document.body.appendChild(btn);
+      });
+    })();
+  </script>
 </head>
