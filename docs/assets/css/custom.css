@@ -1,0 +1,55 @@
+
+:root {
+  --brand: #4f46e5;
+  --brand-soft: #eef2ff;
+  --text: #1f2933;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --code-bg: #f6f8fa;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,.08), 0 8px 24px rgba(0,0,0,.06);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.wrapper { max-width: 760px; }
+.site-header {
+  border-top: 4px solid var(--brand);
+  border-bottom: 1px solid var(--border);
+}
+.site-title, .site-title:visited { color: var(--brand); font-weight: 700; letter-spacing: .3px; }
+.site-nav .page-link { color: var(--muted); }
+.site-nav .page-link:hover { color: var(--brand); }
+.post-list { margin-left: 0; }
+.post-list > li {
+  list-style: none;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.post-list > li:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,.1), 0 16px 40px rgba(0,0,0,.08); }
+.post-list-heading { font-size: 1.4rem; border-bottom: 2px solid var(--brand-soft); padding-bottom: .4rem; }
+.post-meta { color: var(--muted); font-size: .85rem; }
+.post-link, .post-link:visited { color: var(--text); font-weight: 600; font-size: 1.2rem; display: inline-block; margin: .25rem 0; }
+.post-link:hover { color: var(--brand); text-decoration: none; }
+.post-list li > p { color: var(--muted); margin: .35rem 0 0; }
+.post-header { margin-bottom: 2rem; }
+.post-title { font-weight: 700; }
+.post-content { font-size: 1.05rem; }
+.post-content h1, .post-content h2, .post-content h3 { margin-top: 2rem; }
+.post-content a { color: var(--brand); text-decoration: none; border-bottom: 1px solid var(--brand-soft); }
+.post-content a:hover { border-bottom-color: var(--brand); }
+.post-content code { background: var(--code-bg); padding: .15em .4em; border-radius: 6px; font-size: .9em; }
+.post-content pre { background: var(--code-bg); border-radius: var(--radius); padding: 1rem; overflow: auto; }
+.post-content pre code { background: none; padding: 0; }
+.post-content blockquote { border-left: 4px solid var(--brand); color: var(--muted); padding-left: 1rem; margin-left: 0; }
+.site-footer { border-top: 1px solid var(--border); }
