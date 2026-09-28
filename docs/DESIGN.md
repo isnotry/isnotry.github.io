@@ -83,6 +83,19 @@ excerpt: 列表页摘要（1~2 句）
 
 > 「项目」采用你确认的 **手写 `projects.yml`** 方案（最稳、零依赖）；后续若想实时同步 Star，可升级为构建前脚本拉 GitHub API 或前端 JS 拉取。
 
+### 项目卡片字段
+
+| 字段 | 必填 | 说明 |
+| --- | --- | --- |
+| `name` / `desc` | ✅ | 卡片标题与简介 |
+| `url` | ✅ | GitHub 仓库地址（卡片标题链接） |
+| `demo` | ➖ | 在线试用地址；**留空则不渲染「在线试用」按钮**（如需要自建服务的 WebNote） |
+| `lang` / `lang_class` | ✅ | 语言名 + 圆点颜色 class（见 `style.css` 的 `.lang-*`） |
+| `stars` | ➖ | 留空则不显示星标（避免 0 star 噪声） |
+| `date` | ✅ | **排序用**，写带引号的 ISO 串（同天项目要带时分，否则倒序时顺序不稳定） |
+
+首页渲染时固定按 `date` **从新到旧**：`{% assign projects = site.data.projects | sort: "date" | reverse %}` —— 新增项目时不用管写在 yml 的哪个位置。
+
 ---
 
 ## 5. 本地预览（无需 Ruby）
