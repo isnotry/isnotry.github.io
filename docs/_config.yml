@@ -1,4 +1,39 @@
-title: My Blog
-description: 由 mytoolbox 自动发布的静态博客
-theme: minima
-show_excerpts: true
+# =========================================================
+# isnotry.github.io — Jekyll 配置（GitHub Pages 兼容）
+# =========================================================
+
+title: kingsir
+description: kingsir 的博客与开源项目 —— 不写代码的 Vibe Coding 玩家，记录自己做出来的东西。
+author: kingsir
+github_username: isnotry
+
+# 部署到 GitHub Pages 时：
+#   - 仓库名为 isnotry.github.io  -> baseurl 留空
+#   - 仓库名为 blog(或其他)        -> baseurl 填 /blog
+baseurl: ""
+url: "https://isnotry.github.io"   # 站点绝对地址（RSS / 绝对链接用）
+
+# 构建
+markdown: kramdown
+highlighter: rouge
+permalink: /posts/:title/        # 文章 URL：/posts/welcome/
+exclude:
+  - tools/                       # 本地预览生成器，不进站点
+  - DESIGN.md
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - node_modules/
+  - posts/                      # 旧的纯静态文章目录，已迁到 _posts
+
+# 插件（GitHub Pages 白名单内）
+plugins:
+  - jekyll-feed
+
+# 文章默认布局
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: "post"

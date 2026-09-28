@@ -1,0 +1,18 @@
+# 我的项目（手写维护，对应 https://github.com/isnotry 的仓库）
+# lang_class 映射到 style.css 里的 .lang-* 圆点颜色
+# stars 留空则不显示星标（避免 0 star 的噪声）
+- name: WebNote
+  desc: 免注册的在线记事本，一键生成分享链接，笔记 7 天后自动删除，数据只落在自己的服务器上。
+  url: https://github.com/isnotry/WebNote
+  lang: Node.js
+  lang_class: lang-node
+- name: DateCycle
+  desc: 公历 / 农历 / 节气 / 中国假期对照表，零依赖零构建的纯静态工具，可一键导出 CSV。
+  url: https://github.com/isnotry/DateCycle
+  lang: JavaScript
+  lang_class: lang-js
+- name: SplitLedger
+  desc: 每行一句话加一个数字，自动累加，一键算清 AA 谁该给谁。数据只存在本地浏览器里。
+  url: https://github.com/isnotry/SplitLedger
+  lang: HTML
+  lang_class: lang-html

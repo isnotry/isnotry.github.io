@@ -1,0 +1,53 @@
+---
+layout: default
+title: kingsir · 博客与项目
+description: kingsir 的博客与开源项目 —— 不写代码，只把想法说清楚，剩下的交给 AI。
+---
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">欢迎来到我的小角落</span>
+    <h1>你好，我是 {{ site.title }}</h1>
+    <p class="lead">不写代码，但一直在造东西。这里放我做出来的项目，以及一些关于「怎么把想法变成能用的东西」的记录。</p>
+    <div class="socials">
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>
+      <a href="{{ "/about/" | relative_url }}">关于我</a>
+      <a href="{{ "/feed.xml" | relative_url }}">RSS</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="blog">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="bar"></span>最新文章</h2>
+      <a class="more" href="{{ "/feed.xml" | relative_url }}">RSS 订阅 →</a>
+    </div>
+    {% if site.posts.size > 0 %}
+    <div class="grid grid-posts">
+      {% for post in site.posts limit:6 %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+      <span class="empty-emoji">✍️</span>
+      <p>还没有发布文章 —— 等我想清楚要写什么，这里就会热闹起来。</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="bar"></span>我的项目</h2>
+      <a class="more" href="https://github.com/{{ site.github_username }}?tab=repositories" target="_blank" rel="noopener">GitHub 全部 →</a>
+    </div>
+    <div class="grid grid-projects">
+      {% for p in site.data.projects %}
+        {% include project-card.html project=p %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
