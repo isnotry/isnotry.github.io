@@ -2,12 +2,12 @@
   <div class="p-head">
     <span class="p-name">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2.9-.3 2-.4 3-.4s2.1.1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-      <a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.name }}</a>
+      <a href="{{ include.project.url }}" target="_blank" rel="noopener">{{ include.project.name }}</a>
     </span>
   </div>
-  <p class="p-desc">{{ project.desc }}</p>
+  <p class="p-desc">{{ include.project.desc }}</p>
   <div class="p-foot">
-    <span class="lang"><span class="ld {{ project.lang_class }}"></span>{{ project.lang }}</span>
-    {% if project.stars %}<span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.3l-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg>{{ project.stars }}</span>{% endif %}
+    <span class="lang"><span class="ld {{ include.project.lang_class }}"></span>{{ include.project.lang }}</span>
+    {% if include.project.stars %}<span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.3l-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg>{{ include.project.stars }}</span>{% endif %}
   </div>
 </div>

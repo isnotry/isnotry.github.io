@@ -1,11 +1,11 @@
 <article class="card reveal">
-  <a class="cover {{ post.cover }}" href="{{ post.url }}"><span class="cover-emoji">{{ post.emoji }}</span></a>
+  <a class="cover {{ include.post.cover }}" href="{{ include.post.url }}"><span class="cover-emoji">{{ include.post.emoji }}</span></a>
   <div class="body">
-    <div class="meta"><span class="cat">{{ post.category }}</span><span class="date">{{ post.date | date: "%Y-%m-%d" }}</span></div>
-    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-    <p class="excerpt">{{ post.excerpt }}</p>
+    <div class="meta"><span class="cat">{{ include.post.category }}</span><span class="date">{{ include.post.date | date: "%Y-%m-%d" }}</span></div>
+    <h3><a href="{{ include.post.url }}">{{ include.post.title }}</a></h3>
+    <p class="excerpt">{{ include.post.excerpt }}</p>
     <div class="tags">
-      {% for t in post.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+      {% for t in include.post.tags %}<span class="tag">{{ t }}</span>{% endfor %}
     </div>
   </div>
 </article>
