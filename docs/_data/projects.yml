@@ -1,18 +1,33 @@
 # 我的项目（手写维护，对应 https://github.com/isnotry 的仓库）
 # lang_class 映射到 style.css 里的 .lang-* 圆点颜色
 # stars 留空则不显示星标（避免 0 star 的噪声）
+# demo 留空则不显示「在线试用」入口（例如需要自建服务的项目）
+# date 用于排序：首页按 date 从新到旧渲染（见 index.html）
+#   取仓库创建时间，写成带引号的 ISO 串（不写时分会导致同天项目排序不稳定）
+- name: MiniTools
+  desc: 一组单文件前端小工具，双击即用，浏览器本地处理，MIT 许可。
+  url: https://github.com/isnotry/MiniTools
+  demo: https://isnotry.github.io/MiniTools/
+  lang: HTML
+  lang_class: lang-html
+  date: "2026-09-28T14:32"
+- name: SplitLedger
+  desc: 每行一句话加一个数字，自动累加，一键算清 AA 谁该给谁。数据只存在本地浏览器里。
+  url: https://github.com/isnotry/SplitLedger
+  demo: https://isnotry.github.io/SplitLedger/
+  lang: HTML
+  lang_class: lang-html
+  date: "2026-09-28T09:24"
+- name: DateCycle
+  desc: 公历 / 农历 / 节气 / 中国假期对照表，零依赖零构建的纯静态工具，可一键导出 CSV。
+  url: https://github.com/isnotry/DateCycle
+  demo: https://isnotry.github.io/DateCycle/
+  lang: JavaScript
+  lang_class: lang-js
+  date: "2026-04-04"
 - name: WebNote
   desc: 免注册的在线记事本，一键生成分享链接，笔记 7 天后自动删除，数据只落在自己的服务器上。
   url: https://github.com/isnotry/WebNote
   lang: Node.js
   lang_class: lang-node
-- name: DateCycle
-  desc: 公历 / 农历 / 节气 / 中国假期对照表，零依赖零构建的纯静态工具，可一键导出 CSV。
-  url: https://github.com/isnotry/DateCycle
-  lang: JavaScript
-  lang_class: lang-js
-- name: SplitLedger
-  desc: 每行一句话加一个数字，自动累加，一键算清 AA 谁该给谁。数据只存在本地浏览器里。
-  url: https://github.com/isnotry/SplitLedger
-  lang: HTML
-  lang_class: lang-html
+  date: "2026-03-24"

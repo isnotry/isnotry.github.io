@@ -45,7 +45,8 @@ description: kingsir 的博客与开源项目 —— 不写代码，只把想法
       <a class="more" href="https://github.com/{{ site.github_username }}?tab=repositories" target="_blank" rel="noopener">GitHub 全部 →</a>
     </div>
     <div class="grid grid-projects">
-      {% for p in site.data.projects %}
+      {% assign projects = site.data.projects | sort: "date" | reverse %}
+      {% for p in projects %}
         {% include project-card.html project=p %}
       {% endfor %}
     </div>

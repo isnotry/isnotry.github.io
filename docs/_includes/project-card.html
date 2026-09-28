@@ -9,5 +9,11 @@
   <div class="p-foot">
     <span class="lang"><span class="ld {{ include.project.lang_class }}"></span>{{ include.project.lang }}</span>
     {% if include.project.stars %}<span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.3l-6.2 3.7 1.6-7L2 9.2l7.1-.6L12 2l2.9 6.6 7.1.6-5.4 4.8 1.6 7z"/></svg>{{ include.project.stars }}</span>{% endif %}
+    {% if include.project.demo %}
+    <a class="demo" href="{{ include.project.demo }}" target="_blank" rel="noopener" title="在线试用 {{ include.project.name }}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      在线试用
+    </a>
+    {% endif %}
   </div>
 </div>

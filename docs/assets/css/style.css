@@ -196,6 +196,18 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 .project .p-foot .lang .ld { width: 10px; height: 10px; border-radius: 50%; }
 .project .p-foot .star { display: inline-flex; align-items: center; gap: 5px; }
 .project .p-foot .star svg { width: 14px; height: 14px; }
+/* 在线试用入口（右对齐胶囊按钮） */
+.project .p-foot .demo {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 5px;
+  font-size: 13px; font-weight: 600; color: var(--accent-ink);
+  background: var(--accent-soft); padding: 4px 12px; border-radius: 999px;
+  border: 1px solid transparent; transition: all .2s ease;
+}
+.project .p-foot .demo svg { width: 13px; height: 13px; }
+.project .p-foot .demo:hover {
+  background: transparent; border-color: var(--accent);
+  color: var(--accent); transform: translateY(-1px);
+}
 .lang-ts { background: #3178c6; } .lang-js { background: #f1e05a; }
 .lang-py { background: #3572A5; } .lang-go { background: #00ADD8; }
 .lang-rust { background: #dea584; } .lang-css { background: #563d7c; }
