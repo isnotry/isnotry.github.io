@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 关于 kingsir
+title: 关于 · kingsir's Projects
 permalink: /about/
 description: 关于 kingsir —— 不写代码的 Vibe Coding 玩家，靠把需求讲清楚来造东西。
 ---

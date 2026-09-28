@@ -107,21 +107,26 @@ python3 -m http.server 8081 --directory _site --bind 127.0.0.1
 ## 6. 接入 GitHub Pages（路线 B，最终步骤）
 
 1. 仓库：**已有的 `isnotry.github.io`**（用户名必须匹配；若用其它仓库名，改 `_config.yml` 的 `baseurl`）。
-   该仓库现状：根目录只有 `LICENSE`，站点源码在 **`docs/`** 子目录（原先是 `theme: minima` 的博客，由 mytoolbox 自动发布）。
-   本 `pages/` 项目是它的换代版本 —— 把本目录内容放到 `docs/`，覆盖旧的 minima 站点。
-2. 推送到 `docs/`（本目录不是 git 仓库，用 worktree 或直接拷贝）：
+   站点源码在 **`docs/`** 子目录，`main` 分支，Pages 的 Source 保持 `main` + `/docs`。
+   > 历史沿革：该仓库 `docs/` 原先放的是 `theme: minima` 的博客，由 mytoolbox（写字台）的「发布到 GitHub Pages」自动推送。
+   > 该发布链路已于 2026-09-28 从 mytoolbox 整体移除，现在**唯一**的发布入口是本仓库的 `tools/deploy.sh`。
+2. 发布（本目录不是 git 仓库，用临时 clone 推送）：
+   ```bash
+   bash tools/deploy.sh "提交说明"      # 本地构建 → rsync 到 docs/ → commit → push
+   ```
+   手写等价步骤：
    ```bash
    git clone git@github.com:isnotry/isnotry.github.io.git /tmp/isnotry-io
    cd /tmp/isnotry-io
-   rm -rf docs                                    # 清掉旧的 minima 站点
+   rm -rf docs
    rsync -a --exclude _site --exclude tools --exclude node_modules \
      /Users/kingsir/Documents/AI/projects/pages/ docs/
-   git add -A && git commit -m "blog: 换成 Jekyll 自建主题"
+   git add -A && git commit -m "blog: 更新站点"
    git push origin main
    ```
 3. 仓库 Settings → Pages → Build and deployment → Source 选 **Deploy from a branch**，分支 `main`、目录 **`/docs`**（保持现状即可）。
 4. 等待约 1 分钟，访问 `https://isnotry.github.io`。
-5. 写新文章：在 `_posts/` 新建 `YYYY-MM-DD-slug.md`，填好 Front Matter，提交即发布。
+5. 写新文章：在 `_posts/` 新建 `YYYY-MM-DD-slug.md`，填好 Front Matter，跑一次 `tools/deploy.sh` 即发布。
 
 > 注意：使用 **SSH** 推送（你一贯要求，不换 HTTPS；GitHub 走 `~/.ssh/id_ed25519_github`）。
 > 之所以要 `rsync` 排除 `_site/` 与 `tools/`：前者是本地预览产物、后者是零 Ruby 预览生成器，都不该进仓库（`_config.yml` 的 `exclude` 只管 Jekyll 构建，不管 git）。
