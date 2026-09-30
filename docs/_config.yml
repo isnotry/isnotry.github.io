@@ -11,7 +11,7 @@ github_username: isnotry
 #   - 仓库名为 isnotry.github.io  -> baseurl 留空
 #   - 仓库名为 blog(或其他)        -> baseurl 填 /blog
 baseurl: ""
-url: "https://isnotry.github.io"   # 站点绝对地址（RSS / 绝对链接用）
+url: "https://kingsir.work"        # 站点绝对地址（RSS / 绝对链接用）
 
 # 构建
 markdown: kramdown
