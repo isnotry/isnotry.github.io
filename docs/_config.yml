@@ -3,9 +3,14 @@
 # =========================================================
 
 title: "kingsir's Work"
-description: kingsir 的博客与开源项目 —— 不写代码的 Vibe Coding 玩家，记录自己做出来的东西。
+tagline: 不写代码，用 AI 造东西
+description: kingsir 的个人站点 —— 不写代码的 Vibe Coding 玩家，把想法讲清楚，剩下的交给 AI。收录开源项目、工具与折腾记录。
+keywords: kingsir, Vibe Coding, AI 编程, 独立开发, 开源项目, Jekyll, GitHub Pages
 author: kingsir
 github_username: isnotry
+email: hi@kingsir.work
+og_image: /assets/img/og-cover.png
+# twitter_username: isnotry    # 有了就填上，Twitter/X 分享卡会带站点账号
 
 # 部署到 GitHub Pages 时：
 #   - 仓库名为 isnotry.github.io  -> baseurl 留空
