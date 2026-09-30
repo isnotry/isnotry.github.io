@@ -160,8 +160,7 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 .card h3 { font-size: 18px; margin: 0; line-height: 1.4; }
 .card h3 a { color: var(--text); }
 .card h3 a:hover { color: var(--accent); }
-.card p.excerpt { font-size: 14.5px; color: var(--text-soft); margin: 0; flex: 1;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.card p.excerpt { font-size: 14.5px; color: var(--text-soft); margin: 0; flex: 1; }
 .card .tags { display: flex; gap: 7px; flex-wrap: wrap; }
 .tag {
   font-size: 12px; font-weight: 600; color: var(--accent-ink);
@@ -189,9 +188,8 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 .project .p-name svg { width: 18px; height: 18px; color: var(--muted); }
 .project .p-name a { color: var(--text); }
 .project .p-name a:hover { color: var(--accent); }
-.project p.p-desc { font-size: 14.5px; color: var(--text-soft); margin: 0; flex: 1;
-  display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;
-  -webkit-line-clamp: 3; line-clamp: 3; }
+/* 描述不截断：line-clamp 在 flex 子项里会算错行数而切掉尾巴，改为完整显示 */
+.project p.p-desc { font-size: 14.5px; color: var(--text-soft); margin: 0; flex: 1; }
 .project .p-foot { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--muted); }
 .project .p-foot .lang { display: inline-flex; align-items: center; gap: 6px; }
 .project .p-foot .lang .ld { width: 10px; height: 10px; border-radius: 50%; }
