@@ -28,7 +28,7 @@ description: 关于 kingsir —— 不写代码的 Vibe Coding 玩家，靠把�
     <h2>联系方式</h2>
     <ul>
       <li>GitHub：<a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">@{{ site.github_username }}</a></li>
-      <li>本站源码：<a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io" target="_blank" rel="noopener">{{ site.github_username }}/{{ site.github_username }}.github.io</a></li>
+      <li>邮箱：<a href="mailto:hi@kingsir.work">hi@kingsir.work</a></li>
     </ul>
   </div>
 </section>
