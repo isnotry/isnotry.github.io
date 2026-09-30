@@ -1,27 +1,50 @@
 # 我的项目（手写维护，对应 https://github.com/isnotry 的仓库）
 # lang_class 映射到 style.css 里的 .lang-* 圆点颜色
 # stars 留空则不显示星标（避免 0 star 的噪声）
-# demo 留空则不显示「在线试用」入口（例如需要自建服务的项目）
+# demo 留空则不显示「在线试用」入口（例如需要自建服务或本地安装的项目）
 # date 用于排序：首页按 date 从新到旧渲染（见 index.html）
-#   取仓库创建时间，写成带引号的 ISO 串（不写时分会导致同天项目排序不稳定）
+#   取仓库创建时间（已换算为北京时间），写成带引号的 ISO 串且带时分
+#   同天项目若不带时分，sort + reverse 后相对顺序会翻转
+# demo 统一用自定义域 https://kingsir.work/<Repo>/：
+#   站点挂上自定义域后，isnotry.github.io/<Repo>/ 会自动 301 到这个地址
+- name: StockVal
+  desc: A股全维估值体检 CLI —— 七维数据透视，离线生成单页估值报告与手机分享卡片。
+  url: https://github.com/isnotry/StockVal
+  demo: https://kingsir.work/StockVal/
+  lang: Python
+  lang_class: lang-py
+  date: "2026-09-30T21:13"
+- name: PinPaste
+  desc: macOS 剪贴板管理器（Tauri 2 + React 19），记录文本与图片、标记来源、收藏与即时搜索，需本地安装。
+  url: https://github.com/isnotry/PinPaste
+  lang: TypeScript
+  lang_class: lang-ts
+  date: "2026-09-30T21:08"
+- name: D2
+  desc: 暗黑破坏神 II：复活 的中英双语攻略站，8 职业 6 篇攻略，纯静态零依赖。
+  url: https://github.com/isnotry/D2
+  demo: https://kingsir.work/D2/
+  lang: HTML
+  lang_class: lang-html
+  date: "2026-09-30T20:41"
 - name: MiniTools
   desc: 一组单文件前端小工具，双击即用，浏览器本地处理，MIT 许可。
   url: https://github.com/isnotry/MiniTools
-  demo: https://isnotry.github.io/MiniTools/
+  demo: https://kingsir.work/MiniTools/
   lang: HTML
   lang_class: lang-html
   date: "2026-09-28T14:32"
 - name: SplitLedger
   desc: 每行一句话加一个数字，自动累加，一键算清 AA 谁该给谁。数据只存在本地浏览器里。
   url: https://github.com/isnotry/SplitLedger
-  demo: https://isnotry.github.io/SplitLedger/
+  demo: https://kingsir.work/SplitLedger/
   lang: HTML
   lang_class: lang-html
   date: "2026-09-28T09:24"
 - name: DateCycle
   desc: 公历 / 农历 / 节气 / 中国假期对照表，零依赖零构建的纯静态工具，可一键导出 CSV。
   url: https://github.com/isnotry/DateCycle
-  demo: https://isnotry.github.io/DateCycle/
+  demo: https://kingsir.work/DateCycle/
   lang: JavaScript
   lang_class: lang-js
   date: "2026-04-04"
