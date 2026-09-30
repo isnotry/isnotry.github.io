@@ -190,7 +190,8 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 .project .p-name a { color: var(--text); }
 .project .p-name a:hover { color: var(--accent); }
 .project p.p-desc { font-size: 14.5px; color: var(--text-soft); margin: 0; flex: 1;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;
+  -webkit-line-clamp: 3; line-clamp: 3; }
 .project .p-foot { display: flex; align-items: center; gap: 16px; font-size: 13px; color: var(--muted); }
 .project .p-foot .lang { display: inline-flex; align-items: center; gap: 6px; }
 .project .p-foot .lang .ld { width: 10px; height: 10px; border-radius: 50%; }

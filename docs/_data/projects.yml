@@ -15,7 +15,7 @@
   lang_class: lang-py
   date: "2026-09-30T21:13"
 - name: PinPaste
-  desc: macOS 剪贴板管理器（Tauri 2 + React 19），记录文本与图片、标记来源、收藏与即时搜索，需本地安装。
+  desc: macOS 剪贴板管理器（Tauri 2 + React 19），记录文本与图片、标记来源与收藏，即时搜索，需本地安装。
   url: https://github.com/isnotry/PinPaste
   lang: TypeScript
   lang_class: lang-ts
