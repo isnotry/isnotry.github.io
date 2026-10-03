@@ -1,6 +1,6 @@
 <article class="card reveal">
   {% if include.post.cover_img %}
-  <a class="cover has-img" href="{{ include.post.url }}"><img src="{{ include.post.cover_img }}" alt="{{ include.post.title }}"></a>
+  <a class="cover has-img" href="{{ include.post.url }}"><img src="{{ include.post.cover_img }}" alt="{{ include.post.cover_alt | default: include.post.title }}" loading="lazy" decoding="async" width="200" height="118"></a>
   {% else %}
   <a class="cover {{ include.post.cover }}" href="{{ include.post.url }}"><span class="cover-emoji">{{ include.post.emoji }}</span></a>
   {% endif %}

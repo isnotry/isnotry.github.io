@@ -8,7 +8,41 @@
 {%- assign seo_kw = page.keywords | default: site.keywords -%}
 {%- assign page_url = page.url | default: "/" -%}
 {%- assign canonical = site.url | append: page_url -%}
-{%- assign og_image = site.url | append: site.og_image -%}
+{%- comment -%}
+  og:image 选取顺序：
+    1. cover_og   —— 专用分享图（建议 1200x630 / 1.91:1，微信推特不裁切）。有就用它
+    2. cover_img  —— 页面封面图原图。内容完整但比例可能偏离 1.91:1，分享卡会由平台裁切
+    3. site.og_image —— 全站通用图（1200x630）
+  图片地址是图床上的绝对地址，不用拼 site.url。
+  width/height 写错尺寸会让微信/推特裁切或留白，所以按 cover_og → cover_w/h → cover_ratio 依次推断。
+{%- endcomment -%}
+{%- assign has_cover = false -%}
+{%- if page.cover_img -%}{%- assign has_cover = true -%}{%- endif -%}
+{%- if page.cover_og -%}
+  {# 专用分享图：优先用它，比例按标准 1.91:1 处理 #}
+  {%- assign og_image = page.cover_og -%}
+  {%- assign cover_w = page.cover_og_w | default: 1200 -%}
+  {%- assign cover_h = page.cover_og_h | default: 630 -%}
+{%- elsif has_cover -%}
+  {%- assign og_image = page.cover_img -%}
+  {%- comment -%} front matter 可选 cover_w / cover_h；没写则按 cover_ratio 推断 {%- endcomment -%}
+  {%- assign cover_w = page.cover_w -%}
+  {%- assign cover_h = page.cover_h -%}
+  {%- if page.cover_ratio == "tall" -%}
+    {%- unless cover_w -%}{%- assign cover_w = 900 -%}{%- endunless -%}
+    {%- unless cover_h -%}{%- assign cover_h = 1200 -%}{%- endunless -%}
+  {%- elsif page.cover_ratio == "wide" -%}
+    {%- unless cover_w -%}{%- assign cover_w = 1600 -%}{%- endunless -%}
+    {%- unless cover_h -%}{%- assign cover_h = 667 -%}{%- endunless -%}
+  {%- else -%}
+    {%- unless cover_w -%}{%- assign cover_w = 1600 -%}{%- endunless -%}
+    {%- unless cover_h -%}{%- assign cover_h = 1125 -%}{%- endunless -%}
+  {%- endif -%}
+{%- else -%}
+  {%- assign og_image = site.url | append: site.og_image -%}
+  {%- assign cover_w = 1200 -%}
+  {%- assign cover_h = 630 -%}
+{%- endif -%}
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,9 +64,9 @@
   <meta property="og:description" content="{{ seo_desc | escape }}" />
   <meta property="og:url" content="{{ canonical }}" />
   <meta property="og:image" content="{{ og_image }}" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="{{ site.title }}" />
+  <meta property="og:image:width" content="{{ cover_w }}" />
+  <meta property="og:image:height" content="{{ cover_h }}" />
+  <meta property="og:image:alt" content="{% if has_cover %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -82,7 +116,14 @@
         "description": {{ seo_desc | jsonify }},
         "inLanguage": "zh-CN",
         "isPartOf": { "@id": "{{ site.url }}/#website" },
-        "author": { "@id": "{{ site.url }}/#person" }
+        "author": { "@id": "{{ site.url }}/#person" }{% if has_cover %},
+        "image": {
+          "@type": "ImageObject",
+          "url": {{ og_image | jsonify }},
+          "width": {{ cover_w }},
+          "height": {{ cover_h }},
+          "caption": {{ page.title | jsonify }}
+        }{% endif %}
       }{% endif %}{% if page.is_home %}{% assign plist = site.data.projects | sort: "date" | reverse %},
       {
         "@type": "ItemList",

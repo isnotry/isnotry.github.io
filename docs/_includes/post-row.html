@@ -1,7 +1,7 @@
 <article class="post-item reveal">
   {% if include.post.cover_img %}
   <a class="thumb has-img{% if include.post.cover_ratio %} {{ include.post.cover_ratio }}{% endif %}" href="{{ include.post.url }}" aria-label="{{ include.post.title }}">
-    <img src="{{ include.post.cover_img }}" alt="">
+    <img src="{{ include.post.cover_img }}" alt="{{ include.post.cover_alt | default: include.post.title }}" loading="lazy" decoding="async" width="200" height="{% if include.post.cover_ratio == 'tall' %}150{% elsif include.post.cover_ratio == 'wide' %}84{% else %}118{% endif %}">
   </a>
   {% else %}
   <a class="thumb {{ include.post.cover }}" href="{{ include.post.url }}" aria-label="{{ include.post.title }}">
