@@ -9,6 +9,15 @@
 #   新提交了代码就顺手改这一行；不改也不影响渲染，只是 lastmod 会偏旧
 # demo 统一用自定义域 https://kingsir.work/<Repo>/：
 #   站点挂上自定义域后，isnotry.github.io/<Repo>/ 会自动 301 到这个地址
+- name: ImgBed
+  desc: 自建图床：拖拽或粘贴上传，浏览器端压缩转 WebP，一键复制直链 / Markdown / HTML。图片存 R2，出网流量无限免费，10GB 够放两万张。
+  url: https://img.kingsir.work/
+  demo: https://img.kingsir.work/i/20261003/minitools.webp
+  lang: JavaScript
+  lang_class: lang-js
+  date: "2026-10-03T18:38"
+  updated: "2026-10-03"
+  no_icon: true          # 标题不配 GitHub 图标（还没开源，url 指向线上服务）
 - name: TaskToAgent
   desc: 本地任务看板：任务分发给 agent 的调度中枢。CLI、网页、MCP 三端共用一份 SQLite，零外部依赖，数据不出本机，需本地安装。
   url: https://github.com/isnotry/TaskToAgent

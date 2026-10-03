@@ -5,7 +5,11 @@ layout: default
   <div class="post-wrap">
     <article class="post-main">
       <div class="post-hero">
+        {% if page.cover_img %}
+        <div class="cover cover-img{% if page.cover_ratio %} {{ page.cover_ratio }}{% endif %}"><img src="{{ page.cover_img }}" alt="{{ page.title }}"></div>
+        {% else %}
         <div class="cover {{ page.cover }}"><span class="cover-emoji">{{ page.emoji }}</span></div>
+        {% endif %}
         <div class="tags">
           {% for t in page.tags %}<span class="tag">{{ t }}</span>{% endfor %}
         </div>
