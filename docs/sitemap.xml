@@ -10,6 +10,14 @@ sitemap: false
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  {% assign projects = site.data.projects | sort: "date" | reverse %}{% for p in projects %}{% if p.demo %}
+  <url>
+    <loc>{{ p.demo }}</loc>
+    <lastmod>{{ p.updated | default: p.date | date: "%Y-%m-%d" }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  {% endif %}{% endfor %}
   <url>
     <loc>{{ site.url }}/about/</loc>
     <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>

@@ -5,6 +5,8 @@
 # date 用于排序：首页按 date 从新到旧渲染（见 index.html）
 #   取仓库创建时间（已换算为北京时间），写成带引号的 ISO 串且带时分
 #   同天项目若不带时分，sort + reverse 后相对顺序会翻转
+# updated 用于 sitemap.xml 的 <lastmod>，取仓库最后推送时间（北京时区）。
+#   新提交了代码就顺手改这一行；不改也不影响渲染，只是 lastmod 会偏旧
 # demo 统一用自定义域 https://kingsir.work/<Repo>/：
 #   站点挂上自定义域后，isnotry.github.io/<Repo>/ 会自动 301 到这个地址
 - name: TaskToAgent
@@ -13,6 +15,7 @@
   lang: Node.js
   lang_class: lang-node
   date: "2026-10-03T14:48"
+  updated: "2026-10-03"
 - name: StockVal
   desc: A股全维估值体检 CLI —— 七维数据透视，离线生成单页估值报告与手机分享卡片。
   url: https://github.com/isnotry/StockVal
@@ -20,12 +23,14 @@
   lang: Python
   lang_class: lang-py
   date: "2026-09-30T21:13"
+  updated: "2026-09-30"
 - name: PinPaste
   desc: macOS 剪贴板管理器（Tauri 2 + React 19），记录文本与图片、标记来源与收藏，即时搜索，需本地安装。
   url: https://github.com/isnotry/PinPaste
   lang: TypeScript
   lang_class: lang-ts
   date: "2026-09-30T21:08"
+  updated: "2026-09-30"
 - name: D2
   desc: 暗黑破坏神 II：复活 的中英双语攻略站，8 职业 6 篇攻略，纯静态零依赖。
   url: https://github.com/isnotry/D2
@@ -33,6 +38,7 @@
   lang: HTML
   lang_class: lang-html
   date: "2026-09-30T20:41"
+  updated: "2026-09-30"
 - name: MiniTools
   desc: 一组单文件前端小工具，双击即用，浏览器本地处理，MIT 许可。
   url: https://github.com/isnotry/MiniTools
@@ -40,6 +46,7 @@
   lang: HTML
   lang_class: lang-html
   date: "2026-09-28T14:32"
+  updated: "2026-10-02"
 - name: SplitLedger
   desc: 每行一句话加一个数字，自动累加，一键算清 AA 谁该给谁。数据只存在本地浏览器里。
   url: https://github.com/isnotry/SplitLedger
@@ -47,6 +54,7 @@
   lang: HTML
   lang_class: lang-html
   date: "2026-09-28T09:24"
+  updated: "2026-09-28"
 - name: DateCycle
   desc: 公历 / 农历 / 节气 / 中国假期对照表，零依赖零构建的纯静态工具，可一键导出 CSV。
   url: https://github.com/isnotry/DateCycle
@@ -54,9 +62,11 @@
   lang: JavaScript
   lang_class: lang-js
   date: "2026-04-04"
+  updated: "2026-09-28"
 - name: WebNote
   desc: 免注册的在线记事本，一键生成分享链接，笔记 7 天后自动删除，数据只落在自己的服务器上。
   url: https://github.com/isnotry/WebNote
   lang: Node.js
   lang_class: lang-node
   date: "2026-03-24"
+  updated: "2026-09-28"

@@ -78,6 +78,24 @@
         "inLanguage": "zh-CN",
         "isPartOf": { "@id": "{{ site.url }}/#website" },
         "author": { "@id": "{{ site.url }}/#person" }
+      }{% endif %}{% if page.is_home %}{% assign plist = site.data.projects | sort: "date" | reverse %},
+      {
+        "@type": "ItemList",
+        "@id": "{{ site.url }}/#projects",
+        "name": "kingsir 的开源项目",
+        "description": "{{ site.author }} 用 AI 做出来的开源项目与在线工具。",
+        "numberOfItems": {{ plist.size }},
+        "inLanguage": "zh-CN",
+        "itemListOrder": "https://schema.org/ItemListOrderDescending",
+        "itemListElement": [{% for p in plist %}
+          {
+            "@type": "ListItem",
+            "position": {{ forloop.index }},
+            "name": {{ p.name | jsonify }},
+            "url": {{ p.url | jsonify }}{% if p.demo %},
+            "description": {{ p.desc | jsonify }}{% endif %}
+          }{% unless forloop.last %},{% endunless %}{% endfor %}
+        ]
       }{% endif %}
     ]
   }
