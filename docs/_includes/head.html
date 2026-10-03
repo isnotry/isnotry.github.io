@@ -25,7 +25,11 @@
   {%- assign cover_h = page.cover_og_h | default: 630 -%}
 {%- elsif has_cover -%}
   {%- assign og_image = page.cover_img -%}
-  {%- comment -%} front matter 可选 cover_w / cover_h；没写则按 cover_ratio 推断 {%- endcomment -%}
+  {%- comment -%}
+    front matter 显式写 cover_w / cover_h 最准；
+    没写则按 cover_ratio 分档推断（tall / wide / 默认），
+    适配以后出现比例不同的封面图。
+  {%- endcomment -%}
   {%- assign cover_w = page.cover_w -%}
   {%- assign cover_h = page.cover_h -%}
   {%- if page.cover_ratio == "tall" -%}

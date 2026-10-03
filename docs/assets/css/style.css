@@ -267,18 +267,13 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 }
 
 /* 图片封面：列表页缩略图。
-   方形框对三种比例都不友好 —— 超宽图裁得只剩中间一条，竖图则左右大片留白。
-   改成 200px 宽的横向框、高度按图片真实比例自适应（由 cover_ratio 决定），
-   每张图都能完整看清。 */
-.post-item .thumb.has-img {
-  aspect-ratio: auto; height: 118px; background: #f4f5f7;
-}
-.post-item .thumb.has-img.wide { height: 84px; }   /* 2.4:1 超宽看板 */
-.post-item .thumb.has-img.tall { height: 150px; }  /* 0.75:1 竖版界面 */
+   200px 宽 × 118px 高（≈1.7:1），配合 object-fit: cover 裁切。
+   封面图统一为 2560×1440（16:9），这个比例裁切后主体都在画面内。 */
+.post-item .thumb.has-img { aspect-ratio: auto; height: 118px; background: var(--surface-2); }
 .post-item .thumb.has-img::after { content: none; }
 .post-item .thumb.has-img img {
   position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: top center; display: block;
+  object-fit: cover; object-position: center; display: block;
   transition: transform .4s ease;
 }
 .post-item:hover .thumb.has-img img { transform: scale(1.05); }
@@ -306,23 +301,18 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 .post-hero .cover { height: 240px; border-radius: var(--radius); margin-bottom: 28px; position: relative; overflow: hidden; }
 .post-hero .cover .cover-emoji { position: absolute; right: 28px; bottom: 20px; font-size: 70px; filter: drop-shadow(0 4px 12px rgba(0,0,0,.25)); }
 
-/* 图片封面：项目实拍。
+/* 图片封面。
    img 必须绝对定位 —— 否则它的固有比例会撑开容器，
-   连带把下面的标签和标题挤走（aspect-ratio + object-fit 组合的经典坑）。*/
+   连带把下面的标签和标题挤走（aspect-ratio + object-fit 组合的经典坑）。
+   封面图统一 2560×1440（16:9），所以 400px 高配 720px 宽正好 1.8:1，
+   object-position 用 center 让插画主体居中。 */
 .post-hero .cover-img { background: var(--surface-2); }
 .post-hero .cover-img img {
   position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; object-position: top center; display: block;
+  object-fit: cover; object-position: center; display: block;
 }
-/* 各项目截图宽高比差异很大（TaskToAgent 3.6:1 超宽、MiniTools 1.4:1、SplitLedger 0.75:1 竖版），
-   统一裁到固定高度会看不清内容。按每张图的真实比例分档。 */
 @media (min-width: 861px) {
   .post-hero .cover-img { height: 400px; }
-  /* 超宽幅看板：整幅缩放不裁切，两侧留白比切掉任务列更好 */
-  .post-hero .cover-img.wide { height: 260px; background: #f4f5f7; }
-  .post-hero .cover-img.wide img { object-fit: contain; object-position: center; }
-  /* 竖版界面：给足高度，避免左右大片留白 */
-  .post-hero .cover-img.tall { height: 480px; }
 }
 .post-hero .tags { margin-bottom: 16px; }
 .post-hero h1 { font-size: clamp(28px, 4vw, 40px); margin: 0 0 14px; }
