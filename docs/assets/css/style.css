@@ -220,6 +220,51 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 .empty-state .empty-emoji { font-size: 34px; line-height: 1; display: block; margin-bottom: 12px; }
 .empty-state p { margin: 0; color: var(--muted); font-size: 14.5px; }
 
+/* ---------- 文章列表页（/blog/）----------
+   纵向条目：左侧方形缩略图 + 右侧标题概要，一条条往下排 */
+.post-list { display: flex; flex-direction: column; gap: 18px; }
+
+.post-item {
+  display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.post-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border-strong);
+}
+
+.post-item .thumb {
+  position: relative; aspect-ratio: 1 / 1; border-radius: var(--radius-sm);
+  overflow: hidden; display: block; flex-shrink: 0;
+}
+.post-item .thumb::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 45%, rgba(0,0,0,.10));
+}
+.post-item .thumb .cover-emoji {
+  position: absolute; right: 12px; bottom: 10px; font-size: 40px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.22));
+}
+
+.post-item .body { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.post-item .meta { font-size: 13px; color: var(--muted); display: flex; gap: 10px; align-items: center; }
+.post-item .meta .date::before { content: "·"; margin-right: 10px; color: var(--border-strong); }
+.post-item h2 { font-size: 20px; margin: 0; line-height: 1.4; }
+.post-item h2 a { color: var(--text); }
+.post-item h2 a:hover { color: var(--accent); }
+.post-item p.excerpt { font-size: 14.5px; color: var(--text-soft); margin: 0; }
+.post-item .tags { display: flex; gap: 7px; flex-wrap: wrap; margin-top: auto; }
+
+/* 窄屏：缩略图缩到与正文等宽的窄条，避免挤压文字 */
+@media (max-width: 640px) {
+  .post-item { grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding: 14px; }
+  .post-item .thumb .cover-emoji { font-size: 30px; right: 8px; bottom: 6px; }
+  .post-item h2 { font-size: 17px; }
+}
+
 /* ---------- 文章详情页 ---------- */
 .post-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 48px; padding: 48px 0 64px; }
 .post-main { min-width: 0; max-width: 720px; }
