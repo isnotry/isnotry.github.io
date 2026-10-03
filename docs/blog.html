@@ -1,0 +1,41 @@
+---
+layout: default
+title: 博客 · kingsir's Work
+permalink: /blog/
+description: kingsir 的博客：Vibe Coding 实践记录、项目拆解与折腾笔记。不写代码的 AI 协作怎么把想法变成能用的东西。
+keywords: 博客, 文章, Vibe Coding, AI 编程, 独立开发, kingsir
+is_blog: true
+---
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Writing</span>
+    <h1>博客 · 用 AI 把想法变成能用的东西</h1>
+    <p class="lead">这里是站里所有文章的地方。写的都是些「把想法变成能用的东西」过程中遇到的问题，和做完之后才想明白的事。</p>
+    <div class="socials">
+      <a href="{{ "/feed.xml" | relative_url }}">RSS 订阅</a>
+      <a href="{{ "/about/" | relative_url }}">关于我</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2><span class="bar"></span>全部文章</h2>
+      <span class="more">共 {{ site.posts.size }} 篇</span>
+    </div>
+    {% if site.posts.size > 0 %}
+    <div class="grid grid-posts">
+      {% for post in site.posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+      <span class="empty-emoji">✍️</span>
+      <p>还没有发布文章 —— 等我想清楚要写什么，这里就会热闹起来。</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
