@@ -262,11 +262,12 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 .post-item p.excerpt { font-size: 14.5px; color: var(--text-soft); margin: 0; }
 .post-item .tags { display: flex; gap: 7px; flex-wrap: wrap; margin-top: auto; }
 
-/* 窄屏：缩略图缩到与正文等宽的窄条，避免挤压文字 */
+/* 窄屏（手机）：不显示缩略图，单列纯文字列表。
+   文章详情页的封面不受影响 —— 那条规则在 .post-hero .cover 上，与这里无关 */
 @media (max-width: 640px) {
-  .post-item { grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding: 14px; }
-  .post-item .thumb .cover-emoji { font-size: 30px; right: 8px; bottom: 6px; }
-  .post-item h2 { font-size: 17px; }
+  .post-item { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 18px 20px; }
+  .post-item .thumb { display: none; }
+  .post-item h2 { font-size: 18px; }
 }
 
 /* ---------- 文章详情页 ---------- */
