@@ -1,7 +1,13 @@
 <article class="post-item reveal">
+  {% if include.post.cover_img %}
+  <a class="thumb has-img{% if include.post.cover_ratio %} {{ include.post.cover_ratio }}{% endif %}" href="{{ include.post.url }}" aria-label="{{ include.post.title }}">
+    <img src="{{ include.post.cover_img }}" alt="">
+  </a>
+  {% else %}
   <a class="thumb {{ include.post.cover }}" href="{{ include.post.url }}" aria-label="{{ include.post.title }}">
     <span class="cover-emoji">{{ include.post.emoji }}</span>
   </a>
+  {% endif %}
   <div class="body">
     <div class="meta"><span class="cat">{{ include.post.category }}</span><span class="date">{{ include.post.date | date: "%Y-%m-%d" }}</span></div>
     <h2><a href="{{ include.post.url }}">{{ include.post.title }}</a></h2>

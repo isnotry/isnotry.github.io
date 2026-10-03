@@ -157,6 +157,19 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(255,255,255,0) 40%, rgba(0,0,0,.12));
 }
+
+/* 图片封面：项目实拍。
+   img 必须绝对定位 —— 否则图片固有比例会撑开容器、影响卡片布局。
+   ::after 的渐变遮罩对图片封面不需要（本来就该看图），关掉。*/
+.card .cover.has-img { background: var(--surface-2); }
+.card .cover.has-img::after { content: none; }
+.card .cover.has-img img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: top center; display: block;
+  transition: transform .4s ease;
+}
+/* 悬停时轻微放大，和 .card:hover 的上浮动效配在一起 */
+.card:hover .cover.has-img img { transform: scale(1.04); }
 .card .body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .card .meta { font-size: 13px; color: var(--muted); display: flex; gap: 10px; align-items: center; }
 .card .meta .date::before { content: "·"; margin-right: 10px; color: var(--border-strong); }
@@ -252,6 +265,23 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
   position: absolute; right: 12px; bottom: 10px; font-size: 40px;
   filter: drop-shadow(0 2px 6px rgba(0,0,0,.22));
 }
+
+/* 图片封面：列表页缩略图。
+   方形框对三种比例都不友好 —— 超宽图裁得只剩中间一条，竖图则左右大片留白。
+   改成 200px 宽的横向框、高度按图片真实比例自适应（由 cover_ratio 决定），
+   每张图都能完整看清。 */
+.post-item .thumb.has-img {
+  aspect-ratio: auto; height: 118px; background: #f4f5f7;
+}
+.post-item .thumb.has-img.wide { height: 84px; }   /* 2.4:1 超宽看板 */
+.post-item .thumb.has-img.tall { height: 150px; }  /* 0.75:1 竖版界面 */
+.post-item .thumb.has-img::after { content: none; }
+.post-item .thumb.has-img img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: top center; display: block;
+  transition: transform .4s ease;
+}
+.post-item:hover .thumb.has-img img { transform: scale(1.05); }
 
 .post-item .body { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
 .post-item .meta { font-size: 13px; color: var(--muted); display: flex; gap: 10px; align-items: center; }

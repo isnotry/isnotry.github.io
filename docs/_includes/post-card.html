@@ -1,5 +1,9 @@
 <article class="card reveal">
+  {% if include.post.cover_img %}
+  <a class="cover has-img" href="{{ include.post.url }}"><img src="{{ include.post.cover_img }}" alt="{{ include.post.title }}"></a>
+  {% else %}
   <a class="cover {{ include.post.cover }}" href="{{ include.post.url }}"><span class="cover-emoji">{{ include.post.emoji }}</span></a>
+  {% endif %}
   <div class="body">
     <div class="meta"><span class="cat">{{ include.post.category }}</span><span class="date">{{ include.post.date | date: "%Y-%m-%d" }}</span></div>
     <h3><a href="{{ include.post.url }}">{{ include.post.title }}</a></h3>
