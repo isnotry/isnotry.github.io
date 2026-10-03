@@ -46,6 +46,11 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23f5b400'/></svg>" />
 
   <!-- 结构化数据：站点 + 作者（+ 文章） -->
+  {%- comment -%}
+    JSON-LD 里所有来自 front matter 的文本一律走 | jsonify。
+    直接插值时，描述里出现一个英文双引号就把 JSON 打断 —— 而页面照样渲染、不报错，
+    只有 json.loads 才看得出来（skill 阶段 3 点名的坑）。
+  {%- endcomment -%}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,27 +59,27 @@
         "@type": "WebSite",
         "@id": "{{ site.url }}/#website",
         "url": "{{ site.url }}/",
-        "name": "{{ site.title }}",
-        "description": "{{ seo_desc }}",
+        "name": {{ site.title | jsonify }},
+        "description": {{ seo_desc | jsonify }},
         "inLanguage": "zh-CN",
         "publisher": { "@id": "{{ site.url }}/#person" }
       },
       {
         "@type": "Person",
         "@id": "{{ site.url }}/#person",
-        "name": "{{ site.author }}",
+        "name": {{ site.author | jsonify }},
         "url": "{{ site.url }}/about/",
-        "email": "{{ site.email }}",
+        "email": {{ site.email | jsonify }},
         "sameAs": ["https://github.com/{{ site.github_username }}"]
       }{% if page.layout == "post" %},
       {
         "@type": "BlogPosting",
         "@id": "{{ canonical }}#article",
-        "headline": "{{ page.title }}",
+        "headline": {{ page.title | jsonify }},
         "url": "{{ canonical }}",
         "datePublished": "{{ page.date | date: "%Y-%m-%d" }}",
         "dateModified": "{{ page.last_modified_at | default: page.date | date: "%Y-%m-%d" }}",
-        "description": "{{ seo_desc }}",
+        "description": {{ seo_desc | jsonify }},
         "inLanguage": "zh-CN",
         "isPartOf": { "@id": "{{ site.url }}/#website" },
         "author": { "@id": "{{ site.url }}/#person" }
@@ -83,7 +88,7 @@
         "@type": "ItemList",
         "@id": "{{ site.url }}/#projects",
         "name": "kingsir 的开源项目",
-        "description": "{{ site.author }} 用 AI 做出来的开源项目与在线工具。",
+        "description": {{ site.author | append: " 用 AI 做出来的开源项目与在线工具。" | jsonify }},
         "numberOfItems": {{ plist.size }},
         "inLanguage": "zh-CN",
         "itemListOrder": "https://schema.org/ItemListOrderDescending",

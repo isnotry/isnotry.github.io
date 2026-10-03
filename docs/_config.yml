@@ -21,7 +21,7 @@ url: "https://kingsir.work"        # 站点绝对地址（RSS / 绝对链接用�
 # 构建
 markdown: kramdown
 highlighter: rouge
-permalink: /posts/:title/        # 文章 URL：/posts/welcome/
+permalink: /post/:title/           # 文章 URL：/post/1/
 exclude:
   - tools/                       # 本地预览生成器，不进站点
   - DESIGN.md
