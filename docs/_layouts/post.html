@@ -6,7 +6,7 @@ layout: default
     <article class="post-main">
       <div class="post-hero">
         {% if page.cover_img %}
-        <div class="cover cover-img"><img src="{{ page.cover_img }}" alt="{{ page.cover_alt | default: page.title }}" decoding="async" width="2560" height="1440"></div>
+        <div class="cover cover-img"><img src="{{ page.cover_img }}" alt="{{ page.cover_alt | default: page.title }}" decoding="async" width="1920" height="1080"></div>
         {% else %}
         <div class="cover {{ page.cover }}"><span class="cover-emoji">{{ page.emoji }}</span></div>
         {% endif %}
