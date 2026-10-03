@@ -7,6 +7,12 @@
 #   同天项目若不带时分，sort + reverse 后相对顺序会翻转
 # demo 统一用自定义域 https://kingsir.work/<Repo>/：
 #   站点挂上自定义域后，isnotry.github.io/<Repo>/ 会自动 301 到这个地址
+- name: TaskToAgent
+  desc: 本地任务看板：任务分发给 agent 的调度中枢。CLI、网页、MCP 三端共用一份 SQLite，零外部依赖，数据不出本机，需本地安装。
+  url: https://github.com/isnotry/TaskToAgent
+  lang: Node.js
+  lang_class: lang-node
+  date: "2026-10-03T14:48"
 - name: StockVal
   desc: A股全维估值体检 CLI —— 七维数据透视，离线生成单页估值报告与手机分享卡片。
   url: https://github.com/isnotry/StockVal
