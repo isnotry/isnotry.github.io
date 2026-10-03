@@ -7,22 +7,10 @@ keywords: 博客, 文章, Vibe Coding, AI 编程, 独立开发, kingsir
 is_blog: true
 ---
 
-<section class="hero">
-  <div class="container">
-    <span class="eyebrow">Writing</span>
-    <h1>博客 · 用 AI 把想法变成能用的东西</h1>
-    <p class="lead">这里是站里所有文章的地方。写的都是些「把想法变成能用的东西」过程中遇到的问题，和做完之后才想明白的事。</p>
-    <div class="socials">
-      <a href="{{ "/feed.xml" | relative_url }}">RSS 订阅</a>
-      <a href="{{ "/about/" | relative_url }}">关于我</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
+<section class="section section-blog">
   <div class="container">
     <div class="section-head">
-      <h2><span class="bar"></span>全部文章</h2>
+      <h1>博客</h1>
       <span class="more">共 {{ site.posts.size }} 篇</span>
     </div>
     {% if site.posts.size > 0 %}

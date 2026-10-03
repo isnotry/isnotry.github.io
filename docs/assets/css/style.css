@@ -129,6 +129,9 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 }
 .section-head h2 { font-size: 24px; margin: 0; display: flex; align-items: center; gap: 10px; }
 .section-head h2 .bar { width: 4px; height: 22px; border-radius: 4px; background: var(--accent); display: inline-block; }
+/* 列表页用 h1 当标题（每页需唯一 h1）；baseline 对齐会让右侧小字坠到底部，改用居中对齐 */
+.section-head h1 { font-size: 24px; margin: 0; }
+.section-head h1 .bar { width: 4px; height: 22px; border-radius: 4px; background: var(--accent); display: inline-block; }
 .section-head .more { font-size: 14px; font-weight: 600; color: var(--muted); }
 .section-head .more:hover { color: var(--accent); }
 
@@ -221,7 +224,8 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 .empty-state p { margin: 0; color: var(--muted); font-size: 14.5px; }
 
 /* ---------- 文章列表页（/blog/）----------
-   纵向条目：左侧方形缩略图 + 右侧标题概要，一条条往下排 */
+/* 列表页没有 hero 区，上边距比常规 section 大一些，否则贴着头部显得局促 */
+.section-blog { padding-top: 64px; }
 .post-list { display: flex; flex-direction: column; gap: 18px; }
 
 .post-item {
