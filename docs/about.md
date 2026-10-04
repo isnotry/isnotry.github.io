@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 关于 · kingsir's Work
+title: 关于我 · 不写代码的 Vibe Coding 玩家 kingsir
 permalink: /about/
 description: 关于 kingsir —— 不写代码的 Vibe Coding 玩家，靠把需求讲清楚来造东西。
 ---
@@ -8,7 +8,7 @@ description: 关于 kingsir —— 不写代码的 Vibe Coding 玩家，靠把�
 <section class="hero">
   <div class="container">
     <span class="eyebrow">About</span>
-    <h1>关于我</h1>
+    <h1>关于我<span class="h1-sub">不写代码的 Vibe Coding 玩家</span></h1>
     <p class="lead">我是 {{ site.author }}，不做全栈，也看不懂自己项目里的代码。我是 Vibe Coding 玩家 —— 擅长把「我想要什么」描述到足够清楚，然后交给 AI 把它变成真能跑的东西。这个站、还有站里列的那些项目，都是这么来的。</p>
   </div>
 </section>

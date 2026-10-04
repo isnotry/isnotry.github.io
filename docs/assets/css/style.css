@@ -132,6 +132,11 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 /* 列表页用 h1 当标题（每页需唯一 h1）；baseline 对齐会让右侧小字坠到底部，改用居中对齐 */
 .section-head h1 { font-size: 24px; margin: 0; }
 .section-head h1 .bar { width: 4px; height: 22px; border-radius: 4px; background: var(--accent); display: inline-block; }
+/* h1 里的副标题：承载 SEO 关键词，视觉上退居次要 */
+.h1-sub {
+  font-size: 15px; font-weight: 500; color: var(--muted);
+  margin-left: 10px; letter-spacing: 0;
+}
 .section-head .more { font-size: 14px; font-weight: 600; color: var(--muted); }
 .section-head .more:hover { color: var(--accent); }
 
