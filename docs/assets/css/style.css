@@ -111,7 +111,10 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
   padding: 6px 14px; border-radius: 999px; margin-bottom: 22px;
 }
 .hero h1 { font-size: clamp(34px, 5vw, 52px); margin: 0 0 18px; }
-.hero p.lead { font-size: 19px; color: var(--text-soft); max-width: 620px; margin: 0 0 28px; }
+/* 标语 48 个汉字，19px 下需要约 900px —— 原来的 620px 会被折成两行。
+   放到 1000px（容器 1080px 减去 padding刚好留有余量）让桌面端一行放得下，
+   窄屏再自然换行。 */
+.hero p.lead { font-size: 19px; color: var(--text-soft); max-width: 1000px; margin: 0 0 28px; }
 .hero .socials { display: flex; gap: 10px; flex-wrap: wrap; }
 .hero .socials a {
   display: inline-flex; align-items: center; gap: 8px;
