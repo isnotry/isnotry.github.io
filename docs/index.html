@@ -44,8 +44,7 @@ is_home: true
   <div class="container">
     <div class="section-head">
       <h2><span class="bar"></span>我的项目</h2>
-      <a class="more" href="{{ "/projects/" | relative_url }}">项目详情 →</a>
-      <a class="more" href="https://github.com/{{ site.github_username }}?tab=repositories" target="_blank" rel="noopener">GitHub 全部 →</a>
+      <a class="more" href="{{ "/projects/" | relative_url }}">查看全部 →</a>
     </div>
     <div class="grid grid-projects">
       {% assign projects = site.data.projects | sort: "date" | reverse %}

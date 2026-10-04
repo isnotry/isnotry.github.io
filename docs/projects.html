@@ -11,12 +11,12 @@ is_projects: true
   <div class="container">
     <div class="section-head">
       <h1>项目<span class="h1-sub">用 AI 做出来的开源工具</span></h1>
-      <a class="more" href="https://github.com/{{ site.github_username }}?tab=repositories" target="_blank" rel="noopener">GitHub 全部 →</a>
+      {% assign plist = site.data.projects | sort: "date" | reverse %}
+      <span class="more">共 {{ plist.size }} 个</span>
     </div>
-    {% assign projects = site.data.projects | sort: "date" | reverse %}
-    {% if projects.size > 0 %}
+    {% if plist.size > 0 %}
     <div class="post-list">
-      {% for p in projects %}
+      {% for p in plist %}
         {% include project-row.html project=p %}
       {% endfor %}
     </div>
