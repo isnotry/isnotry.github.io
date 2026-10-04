@@ -124,6 +124,26 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 }
 .hero .socials a:hover { border-color: var(--accent); color: var(--accent-ink); transform: translateY(-2px); box-shadow: var(--shadow); }
 
+/* ---------- 关于页：左文右头像 ---------- */
+.hero-about .container {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  gap: 56px; align-items: center;
+}
+.hero-about-body { min-width: 0; }
+/* 头像是方形插画，用圆形裁切 + 白色描边把它从背景里「托」起来 */
+.hero-about-photo img {
+  display: block; width: 148px; height: 148px;
+  border-radius: 50%; object-fit: cover;
+  border: 3px solid var(--surface);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .10);
+}
+@media (max-width: 860px) {
+  /* 窄屏放不下两栏，头像回到文字上方居中 */
+  .hero-about .container { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .hero-about-photo { order: -1; }
+  .hero-about-photo img { width: 112px; height: 112px; }
+}
+
 /* ---------- 区块标题 ---------- */
 .section { padding: 40px 0; }
 .section-head {
