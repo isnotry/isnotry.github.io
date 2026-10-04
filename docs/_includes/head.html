@@ -128,10 +128,18 @@
           "height": {{ cover_h }},
           "caption": {{ page.title | jsonify }}
         }{% endif %}
-      }{% endif %}{% if page.is_home %}{% assign plist = site.data.projects | sort: "date" | reverse %},
+      }{% endif %}{% comment -%}
+        项目ItemList：首页和 /projects 页共用。
+        ⚠️ 不能写成 {% if page.is_home or page.is_projects %} —— 本地预览引擎的 evalCond
+        只支持 not 和比较运算符，没有 or / and，整串会被当路径解析成假（静默失效）。
+        所以用嵌套 if。
+      {%- endcomment -%}
+      {%- if page.is_home %}{% assign pid = "/#projects" %}{%- endif -%}
+      {%- if page.is_projects %}{% assign pid = "/projects/#projects" %}{%- endif -%}
+      {%- if pid -%}{% assign plist = site.data.projects | sort: "date" | reverse %},
       {
         "@type": "ItemList",
-        "@id": "{{ site.url }}/#projects",
+        "@id": "{{ site.url }}{{ pid }}",
         "name": "kingsir 的开源项目",
         "description": {{ site.author | append: " 用 AI 做出来的开源项目与在线工具。" | jsonify }},
         "numberOfItems": {{ plist.size }},
@@ -142,8 +150,9 @@
             "@type": "ListItem",
             "position": {{ forloop.index }},
             "name": {{ p.name | jsonify }},
-            "url": {{ p.url | jsonify }}{% if p.demo %},
-            "description": {{ p.desc | jsonify }}{% endif %}
+            "url": {{ p.url | jsonify }}{% if p.desc %},
+            "description": {{ p.desc | jsonify }}{% endif %}{% if p.shot %},
+            "image": {{ p.shot | jsonify }}{% endif %}
           }{% unless forloop.last %},{% endunless %}{% endfor %}
         ]
       }{% endif %}{% if page.is_blog %}{% if site.posts.size > 0 %},

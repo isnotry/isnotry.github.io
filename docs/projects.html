@@ -1,0 +1,30 @@
+---
+layout: default
+title: 项目 · 用 AI 做出来的开源工具 · kingsir's Work
+permalink: /projects/
+description: kingsir 用 AI 做出来的开源项目与在线工具：网页小工具集、桌面应用、单文件工具。不写代码，把需求讲清楚，剩下的交给 AI。
+keywords: 开源项目, GitHub, Vibe Coding, AI 编程, 独立开发, 开源工具, kingsir
+is_projects: true
+---
+
+<section class="section section-project">
+  <div class="container">
+    <div class="section-head">
+      <h1>项目<span class="h1-sub">用 AI 做出来的开源工具</span></h1>
+      <a class="more" href="https://github.com/{{ site.github_username }}?tab=repositories" target="_blank" rel="noopener">GitHub 全部 →</a>
+    </div>
+    {% assign projects = site.data.projects | sort: "date" | reverse %}
+    {% if projects.size > 0 %}
+    <div class="post-list">
+      {% for p in projects %}
+        {% include project-row.html project=p %}
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+      <span class="empty-emoji">🧰</span>
+      <p>还没有项目 —— 等我把想法做成能用的东西，这里就会热闹起来。</p>
+    </div>
+    {% endif %}
+  </div>
+</section>

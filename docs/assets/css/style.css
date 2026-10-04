@@ -300,6 +300,41 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
   .post-item h2 { font-size: 18px; }
 }
 
+/* ---------- 项目列表页（/projects） ----------
+   骨架复用 .post-item（横向条目：左图右文），这里只补项目特有的部分。 */
+
+/* 项目名在 meta 行里当标题用，比文章页的 h2 更紧凑 */
+.project-item .p-name-lg { font-size: 19px; font-weight: 700; letter-spacing: -.01em; }
+.project-item .p-name-lg a { color: var(--text); }
+.project-item .p-name-lg a:hover { color: var(--accent); }
+.project-item .meta { flex-wrap: wrap; }
+.project-item .meta .lang { display: inline-flex; align-items: center; gap: 5px; }
+
+/* 缩略图裁切：8 张项目截图尺寸差异极大（1200×500 到 1200×2426），
+   统一裁成 200×118 的横框，object-position: center 保住画面中心的主体。 */
+.project-item .thumb.has-img { background: var(--surface-2); }
+.project-item .thumb.has-img img { object-position: center; }
+
+/* 没有截图时用项目名首字母占位，比空白框体面 */
+.project-item .thumb-placeholder {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-size: 30px; font-weight: 700; color: var(--muted);
+  background: var(--surface-2); border-radius: var(--radius-sm);
+}
+
+.project-item .p-foot { display: flex; gap: 8px; align-items: center; margin-top: auto; padding-top: 4px; }
+.project-item .p-foot .demo,
+.project-item .p-foot .src {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12.5px; font-weight: 600; color: var(--muted);
+  padding: 4px 10px; border: 1px solid var(--border); border-radius: 8px;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.project-item .p-foot .demo svg,
+.project-item .p-foot .src svg { width: 13px; height: 13px; }
+.project-item .p-foot .demo:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.project-item .p-foot .src:hover { color: var(--text); border-color: var(--border-strong); }
+
 /* ---------- 文章详情页 ---------- */
 .post-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 48px; padding: 48px 0 64px; }
 .post-main { min-width: 0; max-width: 720px; }

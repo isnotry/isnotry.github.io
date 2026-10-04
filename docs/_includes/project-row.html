@@ -1,0 +1,31 @@
+<article class="post-item project-item reveal">
+  <a class="thumb has-img" href="{{ include.project.url }}" target="_blank" rel="noopener" aria-label="{{ include.project.name }}">
+    {% if include.project.shot %}
+    <img src="{{ include.project.shot }}" alt="{{ include.project.shot_alt | default: include.project.name }}" loading="lazy" decoding="async" width="200" height="118">
+    {% else %}
+    <span class="thumb-placeholder">{{ include.project.name | slice: 0 }}</span>
+    {% endif %}
+  </a>
+  <div class="body">
+    <div class="meta">
+      <span class="p-name-lg">
+        <a href="{{ include.project.url }}" target="_blank" rel="noopener">{{ include.project.name }}</a>
+      </span>
+      <span class="lang"><span class="ld {{ include.project.lang_class }}"></span>{{ include.project.lang }}</span>
+      <span class="date">{{ include.project.date | date: "%Y-%m" }}</span>
+    </div>
+    <p class="excerpt">{{ include.project.desc }}</p>
+    <div class="p-foot">
+      {% if include.project.demo %}
+      <a class="demo" href="{{ include.project.demo }}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        在线试用
+      </a>
+      {% endif %}
+      <a class="src" href="{{ include.project.url }}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2.9-.3 2-.4 3-.4s2.1.1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        源码
+      </a>
+    </div>
+  </div>
+</article>
