@@ -129,10 +129,11 @@
           "caption": {{ page.title | jsonify }}
         }{% endif %}
       }{% endif %}{% comment -%}
-        项目ItemList：首页和 /projects 页共用。
-        ⚠️ 不能写成 {% if page.is_home or page.is_projects %} —— 本地预览引擎的 evalCond
-        只支持 not 和比较运算符，没有 or / and，整串会被当路径解析成假（静默失效）。
-        所以用嵌套 if。
+        项目 ItemList：首页和 /projects 页共用。
+        注意不能把「is_home or is_projects」写进条件 —— 本地预览引擎的 evalCond
+        只实现了 not 和比较运算符，整串会被当路径解析成假（静默失效）。
+        所以这里用两次独立 if + 中间变量 pid。
+        （本注释里刻意不写 Liquid 标记：Jekyll 的 comment 块不保证跳过内部解析。）
       {%- endcomment -%}
       {%- if page.is_home %}{% assign pid = "/#projects" %}{%- endif -%}
       {%- if page.is_projects %}{% assign pid = "/projects/#projects" %}{%- endif -%}
