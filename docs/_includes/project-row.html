@@ -3,7 +3,7 @@
     {% if include.project.shot %}
     <img src="{{ include.project.shot }}" alt="{{ include.project.shot_alt | default: include.project.name }}" loading="lazy" decoding="async" width="200" height="118">
     {% else %}
-    <span class="thumb-placeholder">{{ include.project.name | slice: 0 }}</span>
+    <span class="thumb-placeholder">{{ include.project.name }}</span>
     {% endif %}
   </a>
   <div class="body">

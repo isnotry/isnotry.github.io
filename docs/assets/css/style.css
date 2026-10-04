@@ -318,8 +318,9 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 /* 没有截图时用项目名首字母占位，比空白框体面 */
 .project-item .thumb-placeholder {
   position: absolute; inset: 0; display: grid; place-items: center;
-  font-size: 30px; font-weight: 700; color: var(--muted);
+  padding: 0 10px; font-size: 15px; font-weight: 700; color: var(--muted);
   background: var(--surface-2); border-radius: var(--radius-sm);
+  text-align: center; word-break: break-word;
 }
 
 .project-item .p-foot { display: flex; gap: 8px; align-items: center; margin-top: auto; padding-top: 4px; }
