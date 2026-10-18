@@ -79,6 +79,7 @@ excerpt: 列表页摘要（1~2 句）
 | `index.html` | 首页：自我介绍 + 最新文章 + 项目 | 文章读取 `site.posts`；项目读取 `site.data.projects`（手写 `projects.yml`） |
 | `_layouts/post.html` | 单篇文章阅读页 | 由 `_posts/*.md` 自动渲染，含 TOC 与上一篇/下一篇 |
 | `about.md` | 关于页 | 固定页面 |
+| `projects.html` | 项目列表页（行式卡片 + 缩略图） | 同样读 `site.data.projects` |
 | `_data/projects.yml` | 「我的项目」数据源 | 手动维护（已选方案：手写 YAML，零依赖） |
 
 > 「项目」采用你确认的 **手写 `projects.yml`** 方案（最稳、零依赖）；后续若想实时同步 Star，可升级为构建前脚本拉 GitHub API 或前端 JS 拉取。
@@ -90,9 +91,30 @@ excerpt: 列表页摘要（1~2 句）
 | `name` / `desc` | ✅ | 卡片标题与简介 |
 | `url` | ✅ | GitHub 仓库地址（卡片标题链接） |
 | `demo` | ➖ | 在线试用地址；**留空则不渲染「在线试用」按钮**（如需要自建服务的 WebNote） |
+| `shot` / `shot_alt` | ✅ | `/projects` 页的项目卡图与 alt。见下方「项目卡」 |
 | `lang` / `lang_class` | ✅ | 语言名 + 圆点颜色 class（见 `style.css` 的 `.lang-*`） |
 | `stars` | ➖ | 留空则不显示星标（避免 0 star 噪声） |
 | `date` | ✅ | **排序用**，写带引号的 ISO 串（同天项目要带时分，否则倒序时顺序不稳定） |
+| `updated` | ➖ | sitemap 的 `<lastmod>`，取最后推送日期（`YYYY-MM-DD`） |
+
+#### 项目卡
+
+`/projects` 的缩略框是 **200×105**，竖版界面截图会被 `object-fit: cover` 裁得看不清，
+所以缩略图不用真实截图，改成脚本生成的 1200×630 暖调项目卡：
+
+```bash
+cd /Users/kingsir/Documents/kingsir.work/repositories/isnotry.github.io
+# 1) 在 tools/make-project-cards.py 顶部的 CARDS 列表里加一项
+#    （name / lang / subtitle / footer，只取一句话，卡片放不下整段 desc）
+python tools/make-project-cards.py --only <Name> --preview /tmp/pv   # 生成 + 小尺寸预览
+```
+
+- 输出到 `assets/img/projects/<小写名>.png`，**跟站点一起推**，不经图床
+- `shot` 填 `https://kingsir.work/assets/img/projects/<小写名>.png`，
+  `shot_alt` 填 `<Name> 项目卡：<副标题>`
+- 配色遵循 `writing/images/post-cover/design.md`，但标题要**深两档**（`#4a4034`）——
+  缩到 200px 宽只有 14px 高，浅色会糊掉
+- 左侧那条 16px 暖橙「书脊」是小尺寸下唯一认得出的锚点，别删
 
 首页渲染时固定按 `date` **从新到旧**：`{% assign projects = site.data.projects | sort: "date" | reverse %}` —— 新增项目时不用管写在 yml 的哪个位置。
 
@@ -103,7 +125,7 @@ excerpt: 列表页摘要（1~2 句）
 本机系统 Ruby 较旧、装 Jekyll 4.x 不稳，因此提供零依赖的 Node 预览生成器，复用同一套 Jekyll 模板：
 
 ```bash
-cd pages
+cd /Users/kingsir/Documents/kingsir.work/repositories/isnotry.github.io
 npm install --prefix tools marked js-yaml     # 仅首次
 node tools/preview.mjs                        # 读取模板 → 输出 _site/
 python3 -m http.server 8081 --directory _site --bind 127.0.0.1
