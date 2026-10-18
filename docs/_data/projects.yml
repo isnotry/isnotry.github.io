@@ -16,6 +16,7 @@
 - name: AnkiMaker
   desc: 古籍 Anki 卡组生成器 —— 浏览器内把道德经、唐诗三百首等 6 部古籍 1980 条笔记生成可导入的 .apkg，数据不上传。
   url: https://github.com/isnotry/AnkiMaker
+  demo: https://kingsir.work/AnkiMaker/
   lang: JavaScript
   lang_class: lang-js
   date: "2026-10-18T18:55"
