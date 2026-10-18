@@ -13,6 +13,14 @@
 #   由 tools/imgbed/tools/upload-project-shots.mjs 扫 repositories/*/docs/screenshot.png 生成，
 #   文件名统一 shot-<仓库名小写>.webp —— 加 shot- 前缀是为了跟文章封面（<slug>.webp）区分，
 #   minitools / splitledger / tasktoagent 三边同名，不加前缀服务端会自动加随机后缀。
+- name: AnkiMaker
+  desc: 古籍 Anki 卡组生成器 —— 浏览器内把道德经、唐诗三百首等 6 部古籍 1980 条笔记生成可导入的 .apkg，数据不上传。
+  url: https://github.com/isnotry/AnkiMaker
+  lang: JavaScript
+  lang_class: lang-js
+  date: "2026-10-18T18:55"
+  updated: "2026-10-18"
+  shot_alt: AnkiMaker 界面：唐诗三百首的背诵卡与赏析卡双栏预览
 - name: TaskToAgent
   desc: 本地任务看板：任务分发给 agent 的调度中枢。CLI、网页、MCP 三端共用一份 SQLite，零外部依赖，数据不出本机，需本地安装。
   url: https://github.com/isnotry/TaskToAgent
