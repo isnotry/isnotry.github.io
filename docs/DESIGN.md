@@ -107,14 +107,22 @@ excerpt: 列表页摘要（1~2 句）
 ```bash
 cd /Users/kingsir/Documents/kingsir.work/repositories/isnotry.github.io
 # 1) 在 tools/make-project-cards.py 的 CARDS 里加 name / lang / subtitle（只取一句话）
-# 2) 透明图标放 assets/img/projects/icons/<小写名>.png（Lucide 渲染的透明单色 PNG）
-python tools/make-project-cards.py                 # 生成全部
-python tools/make-project-cards.py --only <Name>   # 只重做某一个
+# 2) 透明图标放 writing/images/product-cover/icons/<小写名>.png（Lucide 渲染的透明单色 PNG）
+/Users/kingsir/.workbuddy/binaries/python/envs/default/bin/python tools/make-project-cards.py
 ```
 
-- 输出到 `assets/img/projects/<小写名>.png`，**跟站点一起推**，不经图床；母版 PNG 另归档到 `writing/images/product-cover/`
-- `shot` 填 `https://kingsir.work/assets/img/projects/<小写名>.png`，
+母版 PNG 落到 `writing/images/product-cover/product-cover-<小写名>.png`，
+再转 WebP 上传 Cloudflare 图床（**站点 `assets/img/projects/` 不存图**）：
+
+```bash
+cd /Users/kingsir/Documents/kingsir.work/tools/imgbed
+IMGBED_PASSWORD=xxx MODE=product node tools/upload-covers.mjs   # ONLY=xxx.png 可只传某几张
+```
+
+- `shot` 填图床地址 `https://img.kingsir.work/i/<日期>/project-<小写名>.webp`，
   `shot_alt` 填 `<Name> 项目卡：<副标题>`
+- ⚠️ 上传名必须带 `project-` 前缀：图床是扁平 key 空间，
+  minitools / splitledger / tasktoagent / ankimaker / d2 文章和项目重名，不前缀会互相覆盖
 - 标题用深两档暖棕 `#4a4034`——缩到 200px 宽只有 14px 高，浅色会糊掉
 - 图标必须透明底、统一 Lucide 线性（2px、圆角、空心），不要白色底块、不要手绘乱线
 

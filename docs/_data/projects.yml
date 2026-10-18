@@ -10,11 +10,15 @@
 # demo 统一用自定义域 https://kingsir.work/<Repo>/：
 #   站点挂上自定义域后，isnotry.github.io/<Repo>/ 会自动 301 到这个地址
 # shot / shot_alt：项目卡（1200×630 暖调宽卡），显示在 /projects 页的列表里。
-#   由 tools/make-project-cards.py 生成到 assets/img/projects/<仓库名小写>.png，
-#   配色遵循 writing/images/post-cover/design.md（奶油底 #fdf6ec + 暖棕字）。
-#   ⚠️ 2026-10-18 之前用的是各项目的 docs/screenshot.png（竖版界面截图），
-#   在 200×105 的缩略框里被裁得看不清，换成宽卡后构图完整。
-#   改了项目定位/语言标签就重跑一次脚本。
+#   母版由 tools/make-project-cards.py 生成到 writing/images/product-cover/
+#   product-cover-<仓库名小写>.webp，再转 WebP 上传图床：
+#     cd tools/imgbed && IMGBED_PASSWORD=xxx MODE=product node tools/upload-covers.mjs
+#   shot 填图床地址 https://img.kingsir.work/i/<日期>/project-<仓库名小写>.webp。
+#   ⚠️ 上传名必须带 project- 前缀：图床是扁平 key 空间，minitools / splitledger /
+#   tasktoagent / ankimaker / d2 文章和项目重名，不前缀会互相覆盖。
+#   ⚠️ 站点 assets/img/projects/ 已于 2026-10-19 清空，图不跟仓库推。
+#   配色遵循 writing/images/product-cover/design.md（不是 post-cover 那份）。
+#   改了项目定位/语言标签就重跑一次脚本 + 重新上传。
 - name: AnkiMaker
   desc: 古籍 Anki 卡组生成器 —— 浏览器内把道德经、唐诗三百首等 6 部古籍 1980 条笔记生成可导入的 .apkg，数据不上传。
   url: https://github.com/isnotry/AnkiMaker
@@ -23,7 +27,7 @@
   lang_class: lang-js
   date: "2026-10-18T18:55"
   updated: "2026-10-18"
-  shot: https://kingsir.work/assets/img/projects/ankimaker.png
+  shot: https://img.kingsir.work/i/20261018/project-ankimaker.webp
   shot_alt: AnkiMaker 项目卡：把古籍做成 Anki 卡组
 - name: TaskToAgent
   desc: 本地任务看板：任务分发给 agent 的调度中枢。CLI、网页、MCP 三端共用一份 SQLite，零外部依赖，数据不出本机，需本地安装。
@@ -32,7 +36,7 @@
   lang_class: lang-node
   date: "2026-10-03T14:48"
   updated: "2026-10-03"
-  shot: https://kingsir.work/assets/img/projects/tasktoagent.png
+  shot: https://img.kingsir.work/i/20261018/project-tasktoagent.webp
   shot_alt: TaskToAgent 项目卡：任务分发给 agent 的调度中枢
 - name: StockVal
   desc: A股全维估值体检 CLI —— 七维数据透视，离线生成单页估值报告与手机分享卡片。
@@ -42,7 +46,7 @@
   lang_class: lang-py
   date: "2026-09-30T21:13"
   updated: "2026-09-30"
-  shot: https://kingsir.work/assets/img/projects/stockval.png
+  shot: https://img.kingsir.work/i/20261018/project-stockval.webp
   shot_alt: StockVal 项目卡：A 股七维估值体检
 - name: PinPaste
   desc: macOS 剪贴板管理器（Tauri 2 + React 19），记录文本与图片、标记来源与收藏，即时搜索，需本地安装。
@@ -51,7 +55,7 @@
   lang_class: lang-ts
   date: "2026-09-30T21:08"
   updated: "2026-09-30"
-  shot: https://kingsir.work/assets/img/projects/pinpaste.png
+  shot: https://img.kingsir.work/i/20261018/project-pinpaste.webp
   shot_alt: PinPaste 项目卡：macOS 剪贴板管理器
 - name: D2
   desc: 暗黑破坏神 II：复活 的中英双语攻略站，8 职业 6 篇攻略，纯静态零依赖。
@@ -61,7 +65,7 @@
   lang_class: lang-html
   date: "2026-09-30T20:41"
   updated: "2026-09-30"
-  shot: https://kingsir.work/assets/img/projects/d2.png
+  shot: https://img.kingsir.work/i/20261018/project-d2.webp
   shot_alt: D2 项目卡：暗黑破坏神 II 中英双语攻略站
 - name: MiniTools
   desc: 一组单文件前端小工具，双击即用，浏览器本地处理，MIT 许可。
@@ -71,7 +75,7 @@
   lang_class: lang-html
   date: "2026-09-28T14:32"
   updated: "2026-10-02"
-  shot: https://kingsir.work/assets/img/projects/minitools.png
+  shot: https://img.kingsir.work/i/20261018/project-minitools.webp
   shot_alt: MiniTools 项目卡：双击即用的一组单文件小工具
 - name: SplitLedger
   desc: 每行一句话加一个数字，自动累加，一键算清 AA 谁该给谁。数据只存在本地浏览器里。
@@ -81,7 +85,7 @@
   lang_class: lang-html
   date: "2026-09-28T09:24"
   updated: "2026-09-28"
-  shot: https://kingsir.work/assets/img/projects/splitledger.png
+  shot: https://img.kingsir.work/i/20261018/project-splitledger.webp
   shot_alt: SplitLedger 项目卡：一行一句话记一笔账
 - name: DateCycle
   desc: 公历 / 农历 / 节气 / 中国假期对照表，零依赖零构建的纯静态工具，可一键导出 CSV。
@@ -91,7 +95,7 @@
   lang_class: lang-js
   date: "2026-04-04"
   updated: "2026-09-28"
-  shot: https://kingsir.work/assets/img/projects/datecycle.png
+  shot: https://img.kingsir.work/i/20261018/project-datecycle.webp
   shot_alt: DateCycle 项目卡：公历 · 农历 · 节气 · 假期对照
 - name: WebNote
   desc: 免注册的在线记事本，一键生成分享链接，笔记 7 天后自动删除，数据只落在自己的服务器上。
@@ -100,5 +104,5 @@
   lang_class: lang-node
   date: "2026-03-24"
   updated: "2026-09-28"
-  shot: https://kingsir.work/assets/img/projects/webnote.png
+  shot: https://img.kingsir.work/i/20261018/project-webnote.webp
   shot_alt: WebNote 项目卡：免注册的在线记事本
