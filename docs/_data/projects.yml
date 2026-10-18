@@ -20,6 +20,7 @@
   lang_class: lang-js
   date: "2026-10-18T18:55"
   updated: "2026-10-18"
+  shot: https://img.kingsir.work/i/20261018/shot-ankimaker.webp
   shot_alt: AnkiMaker 界面：唐诗三百首的背诵卡与赏析卡双栏预览
 - name: TaskToAgent
   desc: 本地任务看板：任务分发给 agent 的调度中枢。CLI、网页、MCP 三端共用一份 SQLite，零外部依赖，数据不出本机，需本地安装。
