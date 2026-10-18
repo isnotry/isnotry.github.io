@@ -335,7 +335,7 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 
 /* 缩略图裁切：8 张项目截图尺寸差异极大（1200×500 到 1200×2426），
    统一裁成 200×118 的横框，object-position: center 保住画面中心的主体。 */
-.project-item .thumb.has-img { background: var(--surface-2); }
+.project-item .thumb.has-img { background: var(--surface-2); height: 105px; }
 .project-item .thumb.has-img img { object-position: center; }
 
 /* 没有截图时用项目名首字母占位，比空白框体面 */

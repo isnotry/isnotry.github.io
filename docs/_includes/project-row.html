@@ -1,7 +1,7 @@
 <article class="post-item project-item reveal">
   <a class="thumb has-img" href="{{ include.project.url }}" target="_blank" rel="noopener" aria-label="{{ include.project.name }}">
     {% if include.project.shot %}
-    <img src="{{ include.project.shot }}" alt="{{ include.project.shot_alt | default: include.project.name }}" loading="lazy" decoding="async" width="200" height="118">
+    <img src="{{ include.project.shot }}" alt="{{ include.project.shot_alt | default: include.project.name }}" loading="lazy" decoding="async" width="200" height="105">
     {% else %}
     <span class="thumb-placeholder">{{ include.project.name }}</span>
     {% endif %}
