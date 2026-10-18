@@ -100,21 +100,23 @@ excerpt: 列表页摘要（1~2 句）
 #### 项目卡
 
 `/projects` 的缩略框是 **200×105**，竖版界面截图会被 `object-fit: cover` 裁得看不清，
-所以缩略图不用真实截图，改成脚本生成的 1200×630 暖调项目卡：
+所以缩略图不用真实截图，改成脚本生成的 1200×630 暖调项目卡：奶油渐变底 + 细网格，
+上方一枚**透明底 Lucide 线性图标**，下方居中项目名 / 暖橙短横线 / 一句话副标题，
+右上角弱化语言胶囊；整组垂直居中。完整规范见 `writing/images/product-cover/design.md`。
 
 ```bash
 cd /Users/kingsir/Documents/kingsir.work/repositories/isnotry.github.io
-# 1) 在 tools/make-project-cards.py 顶部的 CARDS 列表里加一项
-#    （name / lang / subtitle / footer，只取一句话，卡片放不下整段 desc）
-python tools/make-project-cards.py --only <Name> --preview /tmp/pv   # 生成 + 小尺寸预览
+# 1) 在 tools/make-project-cards.py 的 CARDS 里加 name / lang / subtitle（只取一句话）
+# 2) 透明图标放 assets/img/projects/icons/<小写名>.png（Lucide 渲染的透明单色 PNG）
+python tools/make-project-cards.py                 # 生成全部
+python tools/make-project-cards.py --only <Name>   # 只重做某一个
 ```
 
-- 输出到 `assets/img/projects/<小写名>.png`，**跟站点一起推**，不经图床
+- 输出到 `assets/img/projects/<小写名>.png`，**跟站点一起推**，不经图床；母版 PNG 另归档到 `writing/images/product-cover/`
 - `shot` 填 `https://kingsir.work/assets/img/projects/<小写名>.png`，
   `shot_alt` 填 `<Name> 项目卡：<副标题>`
-- 配色遵循 `writing/images/post-cover/design.md`，但标题要**深两档**（`#4a4034`）——
-  缩到 200px 宽只有 14px 高，浅色会糊掉
-- 左侧那条 16px 暖橙「书脊」是小尺寸下唯一认得出的锚点，别删
+- 标题用深两档暖棕 `#4a4034`——缩到 200px 宽只有 14px 高，浅色会糊掉
+- 图标必须透明底、统一 Lucide 线性（2px、圆角、空心），不要白色底块、不要手绘乱线
 
 首页渲染时固定按 `date` **从新到旧**：`{% assign projects = site.data.projects | sort: "date" | reverse %}` —— 新增项目时不用管写在 yml 的哪个位置。
 
