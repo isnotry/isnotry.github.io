@@ -36,6 +36,23 @@ sitemap: false
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  {%- comment -%}
+    travel-shanghai 的两个语言版本是同域下的真实页面（各自 canonical 自引用、
+    互挂 hreflang），但它们的源文件在 travel-shanghai 仓库里，projects 循环只会带出
+    入口地址一项，所以这里手动补两条。新增同类多语言项目时照此追加。
+  {%- endcomment -%}
+  <url>
+    <loc>{{ site.url }}/travel-shanghai/zh/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/travel-shanghai/en/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 {% for post in site.posts %}
   <url>
     <loc>{{ site.url }}{{ post.url }}</loc>
