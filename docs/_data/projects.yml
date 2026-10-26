@@ -19,6 +19,16 @@
 #   ⚠️ 站点 assets/img/projects/ 已于 2026-10-19 清空，图不跟仓库推。
 #   配色遵循 writing/images/product-cover/design.md（不是 post-cover 那份）。
 #   改了项目定位/语言标签就重跑一次脚本 + 重新上传。
+- name: TravelShanghai
+  desc: 上海 58 个景点的实用旅行指南：门票、开放时间、地铁口、闭馆日一屏查完，附 3 条现成行程与避坑清单。中英双版各写各的，纯静态零依赖。
+  url: https://github.com/isnotry/travel-shanghai
+  demo: https://kingsir.work/travel-shanghai/
+  lang: HTML
+  lang_class: lang-html
+  date: "2026-10-27T00:17"
+  updated: "2026-10-27"
+  shot: https://img.kingsir.work/i/20261026/project-travelshanghai.webp
+  shot_alt: TravelShanghai 项目卡：58 个上海景点中英双语指南
 - name: AnkiMaker
   desc: 古籍 Anki 卡组生成器 —— 浏览器内把道德经、唐诗三百首等 6 部古籍 1980 条笔记生成可导入的 .apkg，数据不上传。
   url: https://github.com/isnotry/AnkiMaker
