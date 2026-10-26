@@ -21,6 +21,18 @@ url: "https://kingsir.work"        # 站点绝对地址（RSS / 绝对链接用�
 # 构建
 markdown: kramdown
 highlighter: rouge
+
+# ⚠️ 时区必须显式写死，别依赖构建机
+# GitHub Pages 的构建机跑在 UTC。front matter 里写 `date: 2026-10-27`（只有日期没有时间）
+# 会被按「构建机本地时区」解释成 2026-10-27T00:00:00Z —— 而北京时间此刻可能才 10-27 00:37，
+# UTC 还停在 10-26 16:37，于是这篇文章「发布日期在未来」被 Jekyll 静默丢弃：
+# 首页不出现、/posts/N/ 直接 404、sitemap 里也没有，但 Actions 显示构建成功。
+# 本地预览器不判断 future，所以本地一切正常 —— 典型的「本地好的，线上没有」。
+timezone: Asia/Shanghai
+
+# 允许发布「日期在未来」的文章：本地写完当天就发，不再因为构建机时钟差几小时而消失。
+# （代价是不能靠 front matter 排期定时发布 —— 这个站用不到）
+future: true
 permalink: /posts/:title/          # 文章 URL：/posts/1/
 exclude:
   - tools/                       # 本地预览生成器，不进站点
