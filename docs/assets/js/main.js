@@ -77,10 +77,27 @@
 
   /* 当前导航高亮 */
   var path = location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".nav-links a").forEach(function (a) {
+  document.querySelectorAll(".nav-links a, .mobile-nav a").forEach(function (a) {
     var href = a.getAttribute("href");
     if (href === path || (path === "index.html" && href === "index.html")) {
       a.classList.add("active");
     }
   });
+
+  /* 移动端汉堡菜单：点击展开/收起 */
+  var menuToggle = document.getElementById("menu-toggle");
+  var mobileMenu = document.getElementById("mobile-menu");
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", function () {
+      var isOpen = mobileMenu.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    // 点击菜单项后自动收起
+    mobileMenu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        mobileMenu.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
 })();

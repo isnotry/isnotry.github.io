@@ -102,6 +102,28 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 .icon-btn:hover { color: var(--text); border-color: var(--border-strong); transform: translateY(-1px); }
 .icon-btn svg { width: 18px; height: 18px; }
 
+/* 汉堡菜单按钮：桌面端隐藏，手机端显示 */
+.menu-toggle { display: none; }
+
+/* 移动端下拉菜单：默认隐藏 */
+.mobile-menu {
+  display: none;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.mobile-menu.open { display: block; }
+.mobile-nav {
+  display: flex; flex-direction: column; padding: 12px 24px 20px;
+}
+.mobile-nav a {
+  padding: 12px 8px; color: var(--text-soft); font-weight: 500; font-size: 16px;
+  border-bottom: 1px solid var(--border);
+  transition: color .2s ease;
+}
+.mobile-nav a:last-child { border-bottom: none; }
+.mobile-nav a:hover, .mobile-nav a.active { color: var(--accent-ink); background: var(--accent-soft); border-radius: 8px; }
+
 /* ---------- Hero ---------- */
 .hero { padding: 80px 0 56px; }
 .hero .eyebrow {
@@ -447,6 +469,7 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 }
 @media (max-width: 640px) {
   .nav-links { display: none; }
+  .menu-toggle { display: grid; }
   .hero { padding: 56px 0 40px; }
   .grid-posts, .grid-projects { grid-template-columns: 1fr; }
 }
