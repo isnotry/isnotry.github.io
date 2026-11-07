@@ -27,7 +27,7 @@ is_home: true
     </div>
     {% if site.posts.size > 0 %}
     <div class="grid grid-posts">
-      {% for post in site.posts limit:3 %}
+      {% for post in site.posts limit:6 %}
         {% include post-card.html post=post %}
       {% endfor %}
     </div>
@@ -48,7 +48,7 @@ is_home: true
     </div>
     <div class="grid grid-projects">
       {% assign projects = site.data.projects | sort: "date" | reverse %}
-      {% for p in projects %}
+      {% for p in projects limit:6 %}
         {% include project-card.html project=p %}
       {% endfor %}
     </div>
