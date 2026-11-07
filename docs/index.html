@@ -27,7 +27,7 @@ is_home: true
     </div>
     {% if site.posts.size > 0 %}
     <div class="grid grid-posts">
-      {% for post in site.posts limit:6 %}
+      {% for post in site.posts limit:3 %}
         {% include post-card.html post=post %}
       {% endfor %}
     </div>
