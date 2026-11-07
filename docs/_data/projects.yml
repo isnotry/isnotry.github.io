@@ -22,7 +22,7 @@
 - name: SleepGuide
   desc: 睡眠修复指南：把睡眠拆成一天里几个具体时间点该做什么，21 条编号来源可溯源。单文件静态页，零依赖，双击即开。
   url: https://github.com/isnotry/sleep-guide
-  demo:
+  demo: https://kingsir.work/sleep-guide/
   lang: HTML
   lang_class: lang-html
   date: "2026-11-07T13:49"
