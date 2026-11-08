@@ -1,7 +1,9 @@
 {% comment %}
-文章正文链接统一在新标签页打开。
-只在文章布局里加载，作用域限定 .prose（正文），不碰顶栏、目录、上下篇导航与页脚。
-外链与站内互链一致处理；页内锚点（#）、mailto、tel 保持当前页行为。
+文章正文链接按目标区分打开方式：
+  - 站内其他文章（/posts/<slug>/）：当前窗口打开，保持连续阅读
+  - 项目预览、demo、站外链接及其他非文章目标：新窗口打开，带 noopener noreferrer
+  - 页内锚点（#）、mailto、tel：维持当前页跳转
+只在文章布局加载，作用域限定 .prose（正文），不碰顶栏、目录、上下篇导航与页脚。
 模板级生效：历史文章与后续新文章都自动覆盖，无需逐篇修改。
 {% endcomment %}
 <script>
@@ -10,10 +12,18 @@
   if (!prose) return;
   var links = prose.querySelectorAll('a[href]');
   for (var i = 0; i < links.length; i++) {
-    var href = links[i].getAttribute('href');
+    var a = links[i];
+    var href = a.getAttribute('href');
     if (!href || href.charAt(0) === '#' || /^(mailto:|tel:|javascript:)/i.test(href)) continue;
-    links[i].target = '_blank';
-    links[i].rel = 'noopener noreferrer';
+    var url = null;
+    try { url = new URL(href, window.location.href); } catch (e) {}
+    // 仅站内单篇文章（/posts/<slug>/）留在当前窗口；带 www 的规范域名也算站内
+    var host = url ? url.hostname.toLowerCase() : '';
+    var isPost = url && /^\/posts\/[^\/]+\/?$/.test(url.pathname) &&
+      (url.origin === window.location.origin || /^(www\.)?kingsir\.work$/.test(host));
+    if (isPost) continue;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
   }
 })();
 </script>
