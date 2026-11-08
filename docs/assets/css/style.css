@@ -403,7 +403,7 @@ h1, h2, h3, h4 { line-height: 1.25; font-weight: 700; letter-spacing: -.01em; }
 .post-hero .tags { margin-bottom: 16px; }
 .post-hero h1 { font-size: clamp(28px, 4vw, 40px); margin: 0 0 14px; }
 .post-meta { display: flex; gap: 16px; color: var(--muted); font-size: 14px; align-items: center; flex-wrap: wrap; }
-.post-meta .av { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 13px; }
+.post-meta .av { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; display: block; background: var(--accent-soft); }
 
 /* 正文排版 */
 .prose { font-size: 17px; color: var(--text-soft); }

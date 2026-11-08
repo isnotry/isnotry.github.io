@@ -7,6 +7,8 @@ tagline: 不写代码，用 AI 造东西
 description: kingsir 的个人站点 —— 不写代码的 Vibe Coding 玩家，把想法讲清楚，剩下的交给 AI。收录开源项目、工具与折腾记录。
 keywords: kingsir, Vibe Coding, AI 编程, 独立开发, 开源项目, Jekyll, GitHub Pages
 author: kingsir
+avatar: https://img.kingsir.work/i/20261007/avatar.webp
+avatar_alt: kingsir 的头像：戴口罩的 3D 卡通形象，口罩上贴着黄色笑脸贴纸
 github_username: isnotry
 email: hi@kingsir.work
 og_image: /assets/img/og-cover.png
