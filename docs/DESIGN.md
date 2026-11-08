@@ -105,7 +105,7 @@ excerpt: 列表页摘要（1~2 句）
 右上角弱化语言胶囊；整组垂直居中。完整规范见 `writing/images/product-cover/design.md`。
 
 ```bash
-cd /Users/kingsir/Documents/kingsir.work/repositories/isnotry.github.io
+cd /Users/kingsir/Documents/AI/projects/kingsir.work/repositories/isnotry.github.io
 # 1) 在 tools/make-project-cards.py 的 CARDS 里加 name / lang / subtitle（只取一句话）
 # 2) 透明图标放 writing/images/product-cover/icons/<小写名>.png（Lucide 渲染的透明单色 PNG）
 /Users/kingsir/.workbuddy/binaries/python/envs/default/bin/python tools/make-project-cards.py
@@ -115,8 +115,9 @@ cd /Users/kingsir/Documents/kingsir.work/repositories/isnotry.github.io
 再转 WebP 上传 Cloudflare 图床（**站点 `assets/img/projects/` 不存图**）：
 
 ```bash
-cd /Users/kingsir/Documents/kingsir.work/tools/imgbed
-IMGBED_PASSWORD=xxx MODE=product node tools/upload-covers.mjs   # ONLY=xxx.png 可只传某几张
+cd /Users/kingsir/Documents/AI/projects/kingsir.work/tools/imgbed
+IMGBED_PASSWORD=xxx 已过时：凭据在 ~/.config/imgbed/credentials，先 `set -a; . ~/.config/imgbed/credentials; set +a`
+MODE=product node tools/upload-covers.mjs   # ONLY=xxx.png 可只传某几张
 ```
 
 - `shot` 填图床地址 `https://img.kingsir.work/i/<日期>/project-<小写名>.webp`，
@@ -135,7 +136,7 @@ IMGBED_PASSWORD=xxx MODE=product node tools/upload-covers.mjs   # ONLY=xxx.png �
 本机系统 Ruby 较旧、装 Jekyll 4.x 不稳，因此提供零依赖的 Node 预览生成器，复用同一套 Jekyll 模板：
 
 ```bash
-cd /Users/kingsir/Documents/kingsir.work/repositories/isnotry.github.io
+cd /Users/kingsir/Documents/AI/projects/kingsir.work/repositories/isnotry.github.io
 npm install --prefix tools marked js-yaml     # 仅首次
 node tools/preview.mjs                        # 读取模板 → 输出 _site/
 python3 -m http.server 8081 --directory _site --bind 127.0.0.1
@@ -165,12 +166,12 @@ python3 -m http.server 8081 --directory _site --bind 127.0.0.1
    cd /tmp/isnotry-io
    rm -rf docs
    rsync -a --exclude _site --exclude tools --exclude node_modules \
-     /Users/kingsir/Documents/AI/projects/pages/ docs/
+     /Users/kingsir/Documents/AI/projects/kingsir.work/repositories/isnotry.github.io/ docs/
    git add -A && git commit -m "blog: 更新站点"
    git push origin main
    ```
 3. 仓库 Settings → Pages → Build and deployment → Source 选 **Deploy from a branch**，分支 `main`、目录 **`/docs`**（保持现状即可）。
-4. 等待约 1 分钟，访问 `https://isnotry.github.io`。
+4. 等待 1–2 分钟（实测，稳一点等 ~100 秒），访问 `https://isnotry.github.io`。
 5. 写新文章：在 `_posts/` 新建 `YYYY-MM-DD-slug.md`，填好 Front Matter，跑一次 `tools/deploy.sh` 即发布。
 
 > 注意：使用 **SSH** 推送（你一贯要求，不换 HTTPS；GitHub 走 `~/.ssh/id_ed25519_github`）。

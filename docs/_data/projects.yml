@@ -19,16 +19,16 @@
 #   ⚠️ 站点 assets/img/projects/ 已于 2026-10-19 清空，图不跟仓库推。
 #   配色遵循 writing/images/product-cover/design.md（不是 post-cover 那份）。
 #   改了项目定位/语言标签就重跑一次脚本 + 重新上传。
-- name: SleepGuide
-  desc: 睡眠修复指南：把睡眠拆成一天里几个具体时间点该做什么，21 条编号来源可溯源。单文件静态页，零依赖，双击即开。
-  url: https://github.com/isnotry/sleep-guide
-  demo: https://kingsir.work/sleep-guide/
+- name: LifeGuide
+  desc: 饮食、锻炼、睡眠三份可执行的生活指南：把一天里的关键决定拆成数字口径与具体动作，50 条编号来源可查。四页单文件静态站，零依赖。
+  url: https://github.com/isnotry/life-guide
+  demo: https://kingsir.work/life-guide/
   lang: HTML
   lang_class: lang-html
   date: "2026-11-07T13:49"
-  updated: "2026-11-07"
-  shot: https://img.kingsir.work/i/20261107/project-sleepguide.webp
-  shot_alt: SleepGuide 项目卡：按时间点拆分的睡眠修复指南
+  updated: "2026-11-08"
+  shot: https://img.kingsir.work/i/20261108/project-lifeguide.webp
+  shot_alt: LifeGuide 项目卡：饮食、锻炼、睡眠三份生活指南
 - name: TravelShanghai
   desc: 上海 58 个景点的实用旅行指南：门票、开放时间、地铁口、闭馆日一屏查完，附 3 条现成行程与避坑清单。中英双版各写各的，纯静态零依赖。
   url: https://github.com/isnotry/travel-shanghai
