@@ -1,0 +1,19 @@
+{% comment %}
+文章正文链接统一在新标签页打开。
+只在文章布局里加载，作用域限定 .prose（正文），不碰顶栏、目录、上下篇导航与页脚。
+外链与站内互链一致处理；页内锚点（#）、mailto、tel 保持当前页行为。
+模板级生效：历史文章与后续新文章都自动覆盖，无需逐篇修改。
+{% endcomment %}
+<script>
+(function () {
+  var prose = document.querySelector('.prose');
+  if (!prose) return;
+  var links = prose.querySelectorAll('a[href]');
+  for (var i = 0; i < links.length; i++) {
+    var href = links[i].getAttribute('href');
+    if (!href || href.charAt(0) === '#' || /^(mailto:|tel:|javascript:)/i.test(href)) continue;
+    links[i].target = '_blank';
+    links[i].rel = 'noopener noreferrer';
+  }
+})();
+</script>
